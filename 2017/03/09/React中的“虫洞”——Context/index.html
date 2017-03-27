@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="王占永" />
+
+
+
+<meta name="description" content="当我们写React时，我们总是通过改变State和传递Prop对view进行控制，有时，也会遇到一点小麻烦。
+但是随着我们的应用变的越来越复杂，组件嵌套也变的越来越深，有时甚至要从最外层将一个数据一直传递到最里层（比如当前user的信息）。
+幸运的是，React的开发者也意识到这个问题，为我们开发出了这个空间穿越通道 —— Context。
+使用看起来很高大上的Context使用起来却异常简单。假">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React中的“虫洞”——Context">
+<meta property="og:url" content="http://wangzhanyong.com/2017/03/09/React中的“虫洞”——Context/index.html">
+<meta property="og:site_name" content="Alex wang | 王占永">
+<meta property="og:description" content="当我们写React时，我们总是通过改变State和传递Prop对view进行控制，有时，也会遇到一点小麻烦。
+但是随着我们的应用变的越来越复杂，组件嵌套也变的越来越深，有时甚至要从最外层将一个数据一直传递到最里层（比如当前user的信息）。
+幸运的是，React的开发者也意识到这个问题，为我们开发出了这个空间穿越通道 —— Context。
+使用看起来很高大上的Context使用起来却异常简单。假">
+<meta property="og:image" content="https://sfault-image.b0.upaiyun.com/327/129/3271294917-56ebbe546634a_articlex">
+<meta property="og:updated_time" content="2017-03-09T01:52:25.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="React中的“虫洞”——Context">
+<meta name="twitter:description" content="当我们写React时，我们总是通过改变State和传递Prop对view进行控制，有时，也会遇到一点小麻烦。
+但是随着我们的应用变的越来越复杂，组件嵌套也变的越来越深，有时甚至要从最外层将一个数据一直传递到最里层（比如当前user的信息）。
+幸运的是，React的开发者也意识到这个问题，为我们开发出了这个空间穿越通道 —— Context。
+使用看起来很高大上的Context使用起来却异常简单。假">
+<meta name="twitter:image" content="https://sfault-image.b0.upaiyun.com/327/129/3271294917-56ebbe546634a_articlex">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="Alex wang | 王占永" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.png">
+
+
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>React中的“虫洞”——Context | Alex wang | 王占永</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: undefined,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: undefined
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/client.jpg" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">王占永</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">前端开发</p>
+        
+
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">王占永</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/client.jpg" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">王占永</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">前端开发</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-React中的“虫洞”——Context" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/03/09/React中的“虫洞”——Context/" class="article-date">
+      <time datetime="2017-03-09T01:15:17.000Z" itemprop="datePublished">2017-03-09</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      React中的“虫洞”——Context
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>当我们写React时，我们总是通过改变State和传递Prop对view进行控制，有时，也会遇到一点小麻烦。</p>
+<p>但是随着我们的应用变的越来越复杂，组件嵌套也变的越来越深，有时甚至要从最外层将一个数据一直传递到最里层（比如当前user的信息）。</p>
+<p>幸运的是，React的开发者也意识到这个问题，为我们开发出了这个空间穿越通道 —— Context。</p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>看起来很高大上的Context使用起来却异常简单。假设我们有下面这样的组件结构。</p>
+<a id="more"></a>
+<p><img src="https://sfault-image.b0.upaiyun.com/327/129/3271294917-56ebbe546634a_articlex" alt=""></p>
+<h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><p>Child组件需要获取在App组件(父组件)中用户信息应该怎么办？有了Context，我们可以这么做。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// Component App</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</div><div class="line">  <span class="keyword">static</span> childContextTypes = &#123;</div><div class="line">    <span class="attr">user</span>: React.PropTypes.object.isRequired</div><div class="line">  &#125;</div><div class="line">  getChildContext() &#123;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">      <span class="attr">user</span>: <span class="keyword">this</span>.props.user</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  render() &#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      &lt;div &gt;</div><div class="line">        &lt;Child /&gt;</div><div class="line">      &lt;/div&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">// Component Child</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Child</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</div><div class="line">  <span class="keyword">static</span> contextTypes = &#123;</div><div class="line">    <span class="attr">user</span>: React.PropTypes.object.isRequired</div><div class="line">  &#125;</div><div class="line">  render() &#123;</div><div class="line">    <span class="keyword">return</span> &lt;div&gt;&#123;this.context.user.name&#125;&lt;/div&gt;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//index.js</span></div><div class="line">ReactDOM.render(</div><div class="line">&lt;App user=&#123;&#123;name:'Alex',age:40&#125;&#125; /&gt;, </div><div class="line">document.getElementById('root')</div><div class="line">)</div></pre></td></tr></table></figure>
+<p>很简单吧，只要在外层定义一个<code>getChildContext</code>方法，在父层和里层分别制定<code>contextTypes</code>就可以直接在里层用<code>this.context</code>访问了，是不是很厉害，XD</p>
+<h3 id="在lifecycle方法中使用"><a href="#在lifecycle方法中使用" class="headerlink" title="在lifecycle方法中使用"></a>在lifecycle方法中使用</h3><p>根据官方的文档，Context在以下的lifecycle方法中也是可以使用的</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">void</span> componentWillReceiveProps(</div><div class="line">  object nextProps, object nextContext</div><div class="line">)</div><div class="line"></div><div class="line">boolean shouldComponentUpdate(</div><div class="line">  object nextProps, object nextState, object nextContext</div><div class="line">)</div><div class="line"></div><div class="line"><span class="keyword">void</span> componentWillUpdate(</div><div class="line">  object nextProps, object nextState, object nextContext</div><div class="line">)</div><div class="line"></div><div class="line"><span class="keyword">void</span> componentDidUpdate(</div><div class="line">  object prevProps, object prevState, object prevContext</div><div class="line">)</div></pre></td></tr></table></figure>
+<h3 id="stateless组件中使用"><a href="#stateless组件中使用" class="headerlink" title="stateless组件中使用"></a>stateless组件中使用</h3><p>同时，在最新的stateless组件中，也是可以使用Context的，而且更加简单。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">D</span>(<span class="params">props, context</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> (</div><div class="line">    &lt;div&gt;&#123;this.context.user.name&#125;&lt;/div&gt;</div><div class="line">  );</div><div class="line">&#125;</div><div class="line">D.contextTypes = &#123;</div><div class="line">  <span class="attr">user</span>: React.PropTypes.object.isRequired</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h2><p>既然Context使用起来如此方便，是不是就应该多多用它呢？<br>显然，抛开Context还处于刚刚公开，API不稳定不说，即使对于组件化的开发，到处用也不是一个好主意。<br>Context就像javascript中的全局变量，只有真正全局的东西才适合放在context中。</p>
+<p>比如：</p>
+<ul>
+<li>当前用户信息</li>
+<li>flux、redux的store</li>
+<li>session级别信息（语言，主题等）</li>
+</ul>
+<p>所以，当发现使用Context仅仅为了少打几个字而不考虑存放何种数据，那很可能用错Context了……</p>
+<p><a href="https://segmentfault.com/a/1190000004636213" target="_blank" rel="external">原文链接</a></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2017/03/08/React Element、Component和ReactClass的概念/">
+                    React Element、Component和ReactClass的概念
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#使用"><span class="toc-number">1.</span> <span class="toc-text">使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#基本用法"><span class="toc-number">1.1.</span> <span class="toc-text">基本用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在lifecycle方法中使用"><span class="toc-number">1.2.</span> <span class="toc-text">在lifecycle方法中使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#stateless组件中使用"><span class="toc-number">1.3.</span> <span class="toc-text">stateless组件中使用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用场景"><span class="toc-number">2.</span> <span class="toc-text">使用场景</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"true"];
+    </script>
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2017/03/08/React Element、Component和ReactClass的概念/" title="下一篇: React Element、Component和ReactClass的概念">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/03/09/React中的“虫洞”——Context/">React中的“虫洞”——Context</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/08/React Element、Component和ReactClass的概念/">React Element、Component和ReactClass的概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/07/React组件生命周期/">React组件生命周期</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2017 王占永
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  
+                | 
+                <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a>
+            </div>
+        </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

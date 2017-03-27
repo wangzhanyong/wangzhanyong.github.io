@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="王占永" />
+
+
+
+<meta name="description" content="在组件的整个生命周期中，随着该组件的props或者state发生改变，其DOM表现也会有相应的变化。一个组件就是一个状态机，对于特定地输入，它总返回一致的输出。  
+一个React组件的生命周期分为三个部分：实例化、存在期和销毁时。
+实例化当组件在客户端被实例化，第一次被创建时，以下方法依次被调用：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React组件生命周期">
+<meta property="og:url" content="http://wangzhanyong.com/2017/03/07/React组件生命周期/index.html">
+<meta property="og:site_name" content="Alex wang | 王占永">
+<meta property="og:description" content="在组件的整个生命周期中，随着该组件的props或者state发生改变，其DOM表现也会有相应的变化。一个组件就是一个状态机，对于特定地输入，它总返回一致的输出。  
+一个React组件的生命周期分为三个部分：实例化、存在期和销毁时。
+实例化当组件在客户端被实例化，第一次被创建时，以下方法依次被调用：">
+<meta property="og:image" content="https://sfault-image.b0.upaiyun.com/315/625/3156257312-56761eb64bbfc_articlex">
+<meta property="og:updated_time" content="2017-03-08T08:10:35.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="React组件生命周期">
+<meta name="twitter:description" content="在组件的整个生命周期中，随着该组件的props或者state发生改变，其DOM表现也会有相应的变化。一个组件就是一个状态机，对于特定地输入，它总返回一致的输出。  
+一个React组件的生命周期分为三个部分：实例化、存在期和销毁时。
+实例化当组件在客户端被实例化，第一次被创建时，以下方法依次被调用：">
+<meta name="twitter:image" content="https://sfault-image.b0.upaiyun.com/315/625/3156257312-56761eb64bbfc_articlex">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="Alex wang | 王占永" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.png">
+
+
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>React组件生命周期 | Alex wang | 王占永</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: undefined,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: undefined
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/client.jpg" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">王占永</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">前端开发</p>
+        
+
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">王占永</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/client.jpg" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">王占永</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">前端开发</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-React组件生命周期" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/03/07/React组件生命周期/" class="article-date">
+      <time datetime="2017-03-07T02:19:01.000Z" itemprop="datePublished">2017-03-07</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      React组件生命周期
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>在组件的整个生命周期中，随着该组件的props或者state发生改变，其DOM表现也会有相应的变化。一个组件就是一个状态机，对于特定地输入，它总返回一致的输出。  </p>
+<p>一个React组件的生命周期分为三个部分：实例化、存在期和销毁时。</p>
+<h3 id="实例化"><a href="#实例化" class="headerlink" title="实例化"></a>实例化</h3><p>当组件在客户端被实例化，第一次被创建时，以下方法依次被调用：  </p>
+<a id="more"></a>
+<ol>
+<li>getDefaultProps</li>
+<li>getInitialState</li>
+<li>componentWillMount</li>
+<li>render</li>
+<li>componentDidMount</li>
+</ol>
+<p>当组件在服务端被实例化，首次被创建时，以下方法依次被调用：</p>
+<ol>
+<li>getDefaultProps</li>
+<li>getInitialState</li>
+<li>componentWillMount</li>
+<li>render</li>
+</ol>
+<p>componentDidMount 不会在服务端被渲染的过程中调用。</p>
+<h4 id="getDefaultProps"><a href="#getDefaultProps" class="headerlink" title="getDefaultProps"></a>getDefaultProps</h4><p>对于每个组件实例来讲，这个方法只会调用一次，该组件类的所有后续应用，getDefaultPops 将不会再被调用，其返回的对象可以用于设置默认的 props(properties的缩写) 值。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> Hello = React.creatClass(&#123;</div><div class="line">    <span class="attr">getDefaultProps</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">return</span> &#123;</div><div class="line">            <span class="attr">name</span>: <span class="string">'pomy'</span>,</div><div class="line">            <span class="attr">git</span>: <span class="string">'dwqs'</span></div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">    </div><div class="line">    <span class="attr">render</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">return</span> (</div><div class="line">            &lt;div&gt;Hello,&#123;this.props.name&#125;,git username is &#123;this.props.dwqs&#125;&lt;/div&gt;</div><div class="line">        )</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">ReactDOM.render(&lt;Hello /&gt;, document.body);</div></pre></td></tr></table></figure>
+<p>也可以在挂载组件的时候设置 props：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> data = [&#123;<span class="attr">title</span>: <span class="string">'Hello'</span>&#125;];</div><div class="line">&lt;Hello data=&#123;data&#125; /&gt;</div></pre></td></tr></table></figure>
+<p>或者调用 setProps （一般不需要调用）来设置其 props：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> data = [&#123;<span class="attr">title</span>: <span class="string">'Hello'</span>&#125;];</div><div class="line"><span class="keyword">var</span> Hello = React.render(&lt;Demo /&gt;, document.body);</div><div class="line">Hello.setProps(&#123;data:data&#125;);</div></pre></td></tr></table></figure>
+<p><strong>但只能在子组件或组件树上调用 setProps。别调用 this.setProps 或者 直接修改 this.props。将其当做只读数据。</strong></p>
+<p>React通过 propTypes 提供了一种验证 props 的方式，propTypes 是一个配置对象，用于定义属性类型：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> survey = React.createClass(&#123;</div><div class="line">    <span class="attr">propTypes</span>: &#123;</div><div class="line">        <span class="attr">survey</span>: React.PropTypes.shape(&#123;</div><div class="line">            <span class="attr">id</span>: React.PropTypes.number.isRequired</div><div class="line">        &#125;).isRequired,</div><div class="line">        <span class="attr">onClick</span>: React.PropTypes.func,</div><div class="line">        <span class="attr">name</span>: React.PropTypes.string,</div><div class="line">        <span class="attr">score</span>: React.PropTypes.array</div><div class="line">        ...</div><div class="line">    &#125;,</div><div class="line">    </div><div class="line">    <span class="comment">//...</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>组件初始化时，如果传递的属性和 propTypes 不匹配，则会打印一个 console.warn 日志。如果是可选配置，可以去掉.isRequired。</p>
+<h4 id="getInitialState"><a href="#getInitialState" class="headerlink" title="getInitialState"></a>getInitialState</h4><p>对于组件的每个实例来说，这个方法的调用有且只有一次，用来初始化每个实例的 state，在这个方法里，可以访问组件的 props。每一个React组件都有自己的 state，其与 props 的区别在于 state只存在组件的内部，props 在所有实例中共享。</p>
+<p>getInitialState 和 getDefaultPops 的调用是有区别的，getDefaultPops 是对于组件类来说只调用一次，后续该类的应用都不会被调用，而 getInitialState 是对于每个组件实例来讲都会调用，并且只调一次。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> LikeButton = React.createClass(&#123;</div><div class="line">  <span class="attr">getInitialState</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> &#123;<span class="attr">liked</span>: <span class="literal">false</span>&#125;;</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">handleClick</span>: <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.setState(&#123;<span class="attr">liked</span>: !<span class="keyword">this</span>.state.liked&#125;);</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">render</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> text = <span class="keyword">this</span>.state.liked ? <span class="string">'like'</span> : <span class="string">'haven\'t liked'</span>;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      &lt;p onClick=&#123;this.handleClick&#125;&gt;</div><div class="line">        You &#123;text&#125; this. Click to toggle.</div><div class="line">      &lt;/p&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">ReactDOM.render(</div><div class="line">  &lt;LikeButton /&gt;,</div><div class="line">  document.getElementById('example')</div><div class="line">);</div></pre></td></tr></table></figure>
+<p>每次修改 state，都会重新渲染组件，实例化后通过 state 更新组件，会依次调用下列方法：</p>
+<ol>
+<li>shouldComponentUpdate</li>
+<li>componentWillUpdate</li>
+<li>render</li>
+<li>componentDidUpdate</li>
+</ol>
+<p>但是不要直接修改 this.state，要通过 this.setState 方法来修改。</p>
+<h4 id="componentWillMount"><a href="#componentWillMount" class="headerlink" title="componentWillMount"></a>componentWillMount</h4><p>该方法在首次渲染之前调用，也是再 render 方法调用之前修改 state 的最后一次机会。</p>
+<h4 id="render"><a href="#render" class="headerlink" title="render"></a>render</h4><p>该方法会创建一个虚拟DOM，用来表示组件的输出。对于一个组件来讲，render方法是唯一一个必需的方法。render方法需要满足下面几点：</p>
+<ol>
+<li>只能通过 this.props 和 this.state 访问数据（不能修改）</li>
+<li>可以返回 null,false 或者任何React组件</li>
+<li>只能出现一个顶级组件，不能返回一组元素</li>
+<li>不能改变组件的状态</li>
+<li>不能修改DOM的输出</li>
+</ol>
+<p>render方法返回的结果并不是真正的DOM元素，而是一个虚拟的表现，类似于一个DOM tree的结构的对象。react之所以效率高，就是这个原因。</p>
+<h4 id="componentDidMount"><a href="#componentDidMount" class="headerlink" title="componentDidMount"></a>componentDidMount</h4><p>该方法不会在服务端被渲染的过程中调用。该方法被调用时，已经渲染出真实的 DOM，可以再该方法中通过 this.getDOMNode() 访问到真实的 DOM(推荐使用ReactDOM.findDOMNode())。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> data = [..];</div><div class="line"><span class="keyword">var</span> comp = React.createClass(&#123;</div><div class="line">    <span class="attr">render</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">return</span> &lt;imput .. /&gt;</div><div class="line">    &#125;,</div><div class="line">    componentDidMount: function()&#123;</div><div class="line">        $(this.getDOMNode()).autoComplete(&#123;</div><div class="line">            src: data</div><div class="line">        &#125;)</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>由于组件并不是真实的 DOM 节点，而是存在于内存之中的一种数据结构，叫做虚拟 DOM （virtual DOM）。只有当它插入文档以后，才会变成真实的 DOM 。有时需要从组件获取真实 DOM 的节点，这时就要用到 ref 属性：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> Area = React.createClass(&#123;</div><div class="line">    <span class="attr">render</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">this</span>.getDOMNode(); <span class="comment">//render调用时，组件未挂载，这里将报错</span></div><div class="line">        </div><div class="line">        <span class="keyword">return</span> &lt;canvas ref='mainCanvas'&gt;</div><div class="line">    &#125;,</div><div class="line">    componentDidMount: function()&#123;</div><div class="line">        var canvas = this.refs.mainCanvas.getDOMNode();</div><div class="line">        //这是有效的，可以访问到 Canvas 节点</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>需要注意的是，由于 this.refs.[refName] 属性获取的是真实 DOM ，所以必须等到虚拟 DOM 插入文档以后，才能使用这个属性，否则会报错。</p>
+<h3 id="存在期"><a href="#存在期" class="headerlink" title="存在期"></a>存在期</h3><p>此时组件已经渲染好并且用户可以与它进行交互，比如鼠标点击，手指点按，或者其它的一些事件，导致应用状态的改变，你将会看到下面的方法依次被调用</p>
+<ol>
+<li>componentWillReceiveProps</li>
+<li>shouldComponentUpdate</li>
+<li>componentWillUpdate</li>
+<li>render</li>
+<li>componentDidUpdate</li>
+</ol>
+<h4 id="componentWillReceiveProps"><a href="#componentWillReceiveProps" class="headerlink" title="componentWillReceiveProps"></a>componentWillReceiveProps</h4><p>组件的 props 属性可以通过父组件来更改，这时，componentWillReceiveProps 将来被调用。可以在这个方法里更新 state,以触发 render 方法重新渲染组件。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">componentWillReceiveProps: <span class="function"><span class="keyword">function</span>(<span class="params">nextProps</span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span>(nextProps.checked !== <span class="literal">undefined</span>)&#123;</div><div class="line">        <span class="keyword">this</span>.setState(&#123;</div><div class="line">            <span class="attr">checked</span>: nextProps.checked</div><div class="line">        &#125;)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="shouldComponentUpdate"><a href="#shouldComponentUpdate" class="headerlink" title="shouldComponentUpdate"></a>shouldComponentUpdate</h4><p>如果你确定组件的 props 或者 state 的改变不需要重新渲染，可以通过在这个方法里通过返回 false 来阻止组件的重新渲染，返回 `false 则不会执行 render 以及后面的 componentWillUpdate，componentDidUpdate 方法。</p>
+<p>该方法是非必须的，并且大多数情况下没有在开发中使用。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">shouldComponentUpdate: <span class="function"><span class="keyword">function</span>(<span class="params">nextProps, nextState</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.state.checked === nextState.checked;</div><div class="line">    <span class="comment">//return false 则不更新组件</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="componentWillUpdate"><a href="#componentWillUpdate" class="headerlink" title="componentWillUpdate"></a>componentWillUpdate</h4><p>这个方法和 componentWillMount 类似，在组件接收到了新的 props 或者 state 即将进行重新渲染前，componentWillUpdate(object nextProps, object nextState) 会被调用，注意不要在此方面里再去更新 props 或者 state。</p>
+<h4 id="componentDidUpdate"><a href="#componentDidUpdate" class="headerlink" title="componentDidUpdate"></a>componentDidUpdate</h4><p>这个方法和 componentDidMount 类似，在组件重新被渲染之后，componentDidUpdate(object prevProps, object prevState) 会被调用。可以在这里访问并修改 DOM。</p>
+<h3 id="销毁时"><a href="#销毁时" class="headerlink" title="销毁时"></a>销毁时</h3><h4 id="componentWillUnmount"><a href="#componentWillUnmount" class="headerlink" title="componentWillUnmount"></a>componentWillUnmount</h4><p>每当React使用完一个组件，这个组件必须从 DOM 中卸载后被销毁，此时 componentWillUnmout 会被执行，完成所有的清理和销毁工作，在 componentDidMount 中添加的任务都需要再该方法中撤销，如创建的定时器或事件监听器。</p>
+<p>当再次装载组件时，以下方法会被依次调用：</p>
+<ol>
+<li>getInitialState</li>
+<li>componentWillMount</li>
+<li>render</li>
+<li>componentDidMount</li>
+</ol>
+<h3 id="反模式"><a href="#反模式" class="headerlink" title="反模式"></a>反模式</h3><p>在 getInitialState 方法中，尝试通过 this.props 来创建 state 的做法是一种反模式。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">//反模式</span></div><div class="line">getDefaultProps: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">        <span class="attr">data</span>: <span class="keyword">new</span> <span class="built_in">Date</span>()</div><div class="line">    &#125;</div><div class="line">&#125;,</div><div class="line"><span class="attr">getInitialState</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">        <span class="attr">day</span>: <span class="keyword">this</span>.props.date - <span class="keyword">new</span> <span class="built_in">Date</span>()</div><div class="line">    &#125;</div><div class="line">&#125;,</div><div class="line"><span class="attr">render</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> &lt;div&gt;Day:&#123;this.state.day&#125;&lt;/div&gt;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>经过计算后的值不应该赋给 state，正确的模式应该是在渲染时计算这些值。这样保证了计算后的值永远不会与派生出它的 props 值不同步。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">//正确模式</span></div><div class="line">getDefaultProps: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">        <span class="attr">data</span>: <span class="keyword">new</span> <span class="built_in">Date</span>()</div><div class="line">    &#125;</div><div class="line">&#125;,</div><div class="line"><span class="attr">render</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> day = <span class="keyword">this</span>.props.date - <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">    <span class="keyword">return</span> &lt;div&gt;Day:&#123;day&#125;&lt;/div&gt;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如果只是简单的初始化 state，那么应用反模式是没有问题的。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>以下面的一张图总结组件的生命周期：</p>
+<p><img src="https://sfault-image.b0.upaiyun.com/315/625/3156257312-56761eb64bbfc_articlex" alt=""></p>
+<p><a href="https://segmentfault.com/a/1190000004168886" target="_blank" rel="external">原文链接</a></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2017/03/08/React Element、Component和ReactClass的概念/">
+                    React Element、Component和ReactClass的概念
+                </a>
+            </div>
+        
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#实例化"><span class="toc-number">1.</span> <span class="toc-text">实例化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#getDefaultProps"><span class="toc-number">1.1.</span> <span class="toc-text">getDefaultProps</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#getInitialState"><span class="toc-number">1.2.</span> <span class="toc-text">getInitialState</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#componentWillMount"><span class="toc-number">1.3.</span> <span class="toc-text">componentWillMount</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#render"><span class="toc-number">1.4.</span> <span class="toc-text">render</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#componentDidMount"><span class="toc-number">1.5.</span> <span class="toc-text">componentDidMount</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#存在期"><span class="toc-number">2.</span> <span class="toc-text">存在期</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#componentWillReceiveProps"><span class="toc-number">2.1.</span> <span class="toc-text">componentWillReceiveProps</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#shouldComponentUpdate"><span class="toc-number">2.2.</span> <span class="toc-text">shouldComponentUpdate</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#componentWillUpdate"><span class="toc-number">2.3.</span> <span class="toc-text">componentWillUpdate</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#componentDidUpdate"><span class="toc-number">2.4.</span> <span class="toc-text">componentDidUpdate</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#销毁时"><span class="toc-number">3.</span> <span class="toc-text">销毁时</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#componentWillUnmount"><span class="toc-number">3.1.</span> <span class="toc-text">componentWillUnmount</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#反模式"><span class="toc-number">4.</span> <span class="toc-text">反模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-number">5.</span> <span class="toc-text">总结</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"true"];
+    </script>
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2017/03/08/React Element、Component和ReactClass的概念/" title="上一篇: React Element、Component和ReactClass的概念">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/03/09/React中的“虫洞”——Context/">React中的“虫洞”——Context</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/08/React Element、Component和ReactClass的概念/">React Element、Component和ReactClass的概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/07/React组件生命周期/">React组件生命周期</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2017 王占永
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  
+                | 
+                <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a>
+            </div>
+        </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

@@ -15,16 +15,23 @@
 
 
 
-<meta name="description" content="Web,SPA,Vuejs,Reactjs,Javascript,HTML,CSS,前端开发">
-<meta property="og:type" content="website">
-<meta property="og:title" content="tags">
-<meta property="og:url" content="http://wangzhanyong.com/tags/index.html">
+<meta name="description" content="最近在看大漠的Canvas相关文章，看到关于Web坐标系相关介绍，深有体会。弄清楚了Web中的坐标，对CSS相关定位方面的理解，就会清晰很多。
+笛卡坐标系在数学里，我们学过一种坐标系统，叫作笛卡坐标系（Cartesian Coordinate system），这个坐标系统也称为直角坐标系，是一种正交坐标系。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Web中的坐标系">
+<meta property="og:url" content="http://wangzhanyong.com/2017/03/28/Web中的坐标系/index.html">
 <meta property="og:site_name" content="Alex wang | 王占永">
-<meta property="og:description" content="Web,SPA,Vuejs,Reactjs,Javascript,HTML,CSS,前端开发">
-<meta property="og:updated_time" content="2017-03-07T08:04:19.000Z">
+<meta property="og:description" content="最近在看大漠的Canvas相关文章，看到关于Web坐标系相关介绍，深有体会。弄清楚了Web中的坐标，对CSS相关定位方面的理解，就会清晰很多。
+笛卡坐标系在数学里，我们学过一种坐标系统，叫作笛卡坐标系（Cartesian Coordinate system），这个坐标系统也称为直角坐标系，是一种正交坐标系。">
+<meta property="og:image" content="http://wangzhanyong.com/images/cords/Cartesian-coordinate-system-with-circle.svg.png">
+<meta property="og:image" content="http://wangzhanyong.com/images/cords/Cartesiancoordinatesystem.png">
+<meta property="og:image" content="http://wangzhanyong.com/images/cords/web.png">
+<meta property="og:updated_time" content="2017-03-28T02:08:47.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tags">
-<meta name="twitter:description" content="Web,SPA,Vuejs,Reactjs,Javascript,HTML,CSS,前端开发">
+<meta name="twitter:title" content="Web中的坐标系">
+<meta name="twitter:description" content="最近在看大漠的Canvas相关文章，看到关于Web坐标系相关介绍，深有体会。弄清楚了Web中的坐标，对CSS相关定位方面的理解，就会清晰很多。
+笛卡坐标系在数学里，我们学过一种坐标系统，叫作笛卡坐标系（Cartesian Coordinate system），这个坐标系统也称为直角坐标系，是一种正交坐标系。">
+<meta name="twitter:image" content="http://wangzhanyong.com/images/cords/Cartesian-coordinate-system-with-circle.svg.png">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -51,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>tags | Alex wang | 王占永</title>
+<title>Web中的坐标系 | Alex wang | 王占永</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -61,7 +68,7 @@
         fancybox: true,
         animate: undefined,
         isHome: false,
-        isPost: false,
+        isPost: true,
         isArchive: false,
         isTag: false,
         isCategory: false,
@@ -243,11 +250,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Web中的坐标系" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/tags/index.html" class="article-date">
-      <time datetime="2017-03-07T08:04:19.000Z" itemprop="datePublished">2017-03-07</time>
+      <a href="/2017/03/28/Web中的坐标系/" class="article-date">
+      <time datetime="2017-03-28T01:42:41.000Z" itemprop="datePublished">2017-03-28</time>
 </a>
 
 
@@ -262,7 +269,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      tags
+      Web中的坐标系
     </h1>
   
 
@@ -272,6 +279,10 @@
         
 
         
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
+    </div>
+
         <div class="clearfix"></div>
       </div>
       
@@ -279,86 +290,21 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <style>
-    .article-meta { display: none; }
-    #container .article .article-title { padding-right: 0; }
-    .article-header {
-        padding: 0;
-        padding-top: 26px;
-        border-left: none;
-        text-align: center;
-    }
-    .article-header:hover { border-left: none; }
-    .article-title { font-size: 1.6em }
-    .article-entry hr { margin: 0;}
-    .article-meta,
-    #container .article-info-post.article-info { display: none;}
-    #container .article .article-title { padding: 0; }
-</style>
+        <p>最近在看<a href="http://www.w3cplus.com" target="_blank" rel="external">大漠</a>的Canvas相关文章，看到关于Web坐标系相关介绍，深有体会。弄清楚了Web中的坐标，对CSS相关定位方面的理解，就会清晰很多。</p>
+<h2 id="笛卡坐标系"><a href="#笛卡坐标系" class="headerlink" title="笛卡坐标系"></a>笛卡坐标系</h2><p>在数学里，我们学过一种坐标系统，叫作笛卡坐标系（Cartesian Coordinate system），这个坐标系统也称为<strong>直角坐标系</strong>，是一种正交坐标系。</p>
+<p><img src="http://wangzhanyong.com/images/cords/Cartesian-coordinate-system-with-circle.svg.png" alt=""></p>
+<a id="more"></a>
+<p>二维的直角坐标系是由两条相互垂直、0点重合的数轴构成的。在平面内，任何一点的坐标是根据数轴上对应的点的坐标设定的。在平面内，任何一点与坐标的对应关系，类似于数轴上点与坐标的对应关系。</p>
+<p>可能你对笛卡坐标系有了一定的了解，咱们在此基础上来看一个简单的示例，比如下图：</p>
+<p><img src="http://wangzhanyong.com/images/cords/Cartesiancoordinatesystem.png" alt=""></p>
+<p>你可以看到，每个点都有一双与之关联的值。这些被称为坐标点，通常表示为(x,y)。x位于水平轴上，y位于垂直轴上。其中(0,0)点是坐标原点。x轴从原点向右方向为正值，反之为负值，y轴从原点向上为正值，反之为负值。</p>
+<p>正如上图所示，(2,3)表示x = 2，y=3。我们从坐标原点，沿x轴向右2格位置处画一条与y轴平行的线；另外沿y轴向上3格位置处画一条与x轴平行的线。这两条线交汇处就是(2, 3)的坐标点。</p>
+<h2 id="Web中的坐标系统"><a href="#Web中的坐标系统" class="headerlink" title="Web中的坐标系统"></a>Web中的坐标系统</h2><p>但在Web页面中，或者说我们的浏览器中也有一个坐标系统。只是他和我们数学中的坐标系统不一样。Web的坐标系统的原点是在屏幕（浏览器屏幕）的左上角。如下图所示：</p>
+<p><img src="http://wangzhanyong.com/images/cords/web.png" alt=""></p>
+<p>同样的它有两个坐标轴，x轴（水平轴）和y轴（垂直轴）。两轴的交汇点（左上角）为坐标原点(0,0)。原点沿x轴向右是正值，原点沿y轴向下是正值。</p>
+<p>当然这也不是说所有情况都是不可以见的。如果一个容器div里的另一个元素做x和y负值的移动，容器div如未做overflow:hidden处理，他在屏幕中是可见的。</p>
+<p><a href="https://www.w3cplus.com/canvas/canvas-coordinate-system.html" target="_blank" rel="external">原文链接</a></p>
 
-
-    <!-- Tag Cloud Page -->
-    <hr>
-<br>
-
-
-<p class="count"></p>
-
-<div class="tags">
-    <a href="/tags/CSS/" style="font-size: 16px; color: #808080">CSS</a> <a href="/tags/React/" style="font-size: 35px; color: #000">React</a>
-</div>
-<style>
-    .category-list li{
-        display: inline-block;
-        margin: 0 1em .5em 0;
-        padding: 4px;
-        border: 1px solid lightgray;
-        font-size: 1.2rem;
-    }
-    .category-list a { color: gray; }
-    .category-list-item:hover a {
-        color: gray;
-        text-decoration: none;
-    }
-    .category-list-count {
-        margin-left: 2px;
-        font-size: .9rem;
-    }
-    .article-entry ul li:before{ display: none; }
-    .article-inner { text-align: center; }
-    .tags {
-        max-width: 42em;
-        margin: 2em auto;
-        margin-top: 0em;
-    }
-    .tags a {
-        margin-right: 1em;
-        line-height: 65px;
-        border-bottom: 1px solid gray;
-        white-space: nowrap;
-        transition: border-bottom .5s;
-    }
-    .tags a:hover {
-        border-bottom: 3px dotted gray;
-        text-decoration: none;
-    }
-    #count > span {
-        margin: auto .2em;
-        font-weight: bold;
-    }
-</style>
-
-<!-- Count tags and categories -->
-<p id="count">
-        已有<span><script>document.write($(".category-list-item").length)</script></span>个分类，
-        共计<span><script>document.write($(".tags > a").length)</script></span>个标签
-</p>
-<script>
-    $('#count').appendTo('.count');
-</script>
-
-          
-        
       
     </div>
     
@@ -367,8 +313,42 @@
     
 
 
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2017/03/09/React中的“虫洞”——Context/">
+                    React中的“虫洞”——Context
+                </a>
+            </div>
+        
+    </nav>
+
   
 </article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#笛卡坐标系"><span class="toc-number">1.</span> <span class="toc-text">笛卡坐标系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Web中的坐标系统"><span class="toc-number">2.</span> <span class="toc-text">Web中的坐标系统</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"true"];
+    </script>
 
 
 
@@ -376,6 +356,24 @@
 
     
 
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2017/03/09/React中的“虫洞”——Context/" title="下一篇: React中的“虫洞”——Context">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/03/28/Web中的坐标系/">Web中的坐标系</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/09/React中的“虫洞”——Context/">React中的“虫洞”——Context</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/08/React Element、Component和ReactClass的概念/">React Element、Component和ReactClass的概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/07/React组件生命周期/">React组件生命周期</a></li></ul>
 
 
 

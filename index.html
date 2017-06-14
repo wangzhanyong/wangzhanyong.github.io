@@ -174,7 +174,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Canvas/">Canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/H5/">H5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/">Javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Other/">Other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li></ul>
                     </div>
                 </section>
                 
@@ -247,11 +247,11 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-Web中的坐标系" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Javascript递归遍历树" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/03/28/Web中的坐标系/" class="article-date">
-      <time datetime="2017-03-28T01:42:41.000Z" itemprop="datePublished">2017-03-28</time>
+      <a href="/2017/06/05/Javascript递归遍历树/" class="article-date">
+      <time datetime="2017-06-05T02:55:14.000Z" itemprop="datePublished">2017-06-05</time>
 </a>
 
 
@@ -266,7 +266,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/28/Web中的坐标系/">Web中的坐标系</a>
+      <a class="article-title" href="/2017/06/05/Javascript递归遍历树/">Javascript递归遍历树</a>
     </h1>
   
 
@@ -276,9 +276,9 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <p>最近在看<a href="http://www.w3cplus.com">大漠</a>的Canvas相关文章，看到关于Web坐标系相关介绍，深有体会。弄清楚了Web中的坐标，对CSS相关定位方面的理解，就会清晰很多。</p>
-<h2 id="笛卡坐标系"><a href="#笛卡坐标系" class="headerlink" title="笛卡坐标系"></a>笛卡坐标系</h2><p>在数学里，我们学过一种坐标系统，叫作笛卡坐标系（Cartesian Coordinate system），这个坐标系统也称为<strong>直角坐标系</strong>，是一种正交坐标系。</p>
-<p><img src="http://wangzhanyong.com/images/cords/Cartesian-coordinate-system-with-circle.svg.png" alt=""></p>
+              <p>递归是一个很常用的算法，虽然，因为调用栈的原因，资源消耗比较大，但其简单优雅的用法，使之广受欢迎。递归常用在不可预期层级数的树形数据结构遍历。</p>
+<p>递归有三个基本的概念：入栈、出栈、出口。这三个概念说简单也简单，说复杂也复杂，关键在于对函数的理解，这里不展开讨论该内容。</p>
+<p>由于，经常需要在前端遍历菜单等树形结构，又不想每次翻以前的夹杂着业务逻辑的代码，这里干脆做一个原始的深度优先遍历demo，以备查阅。</p>
           
       
     </div>
@@ -289,12 +289,12 @@
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li></ul>
     </div>
 
       
         <p class="article-more-link">
-          <a href="/2017/03/28/Web中的坐标系/#more">阅读全文 >></a>
+          <a href="/2017/06/05/Javascript递归遍历树/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -313,11 +313,11 @@
 
 
   
-    <article id="post-React中的“虫洞”——Context" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-前端单元测试" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/03/09/React中的“虫洞”——Context/" class="article-date">
-      <time datetime="2017-03-09T01:15:17.000Z" itemprop="datePublished">2017-03-09</time>
+      <a href="/2017/04/23/前端单元测试/" class="article-date">
+      <time datetime="2017-04-23T01:29:40.000Z" itemprop="datePublished">2017-04-23</time>
 </a>
 
 
@@ -332,7 +332,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/09/React中的“虫洞”——Context/">React中的“虫洞”——Context</a>
+      <a class="article-title" href="/2017/04/23/前端单元测试/">前端单元测试</a>
     </h1>
   
 
@@ -342,10 +342,13 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <p>当我们写React时，我们总是通过改变State和传递Prop对view进行控制，有时，也会遇到一点小麻烦。</p>
-<p>但是随着我们的应用变的越来越复杂，组件嵌套也变的越来越深，有时甚至要从最外层将一个数据一直传递到最里层（比如当前user的信息）。</p>
-<p>幸运的是，React的开发者也意识到这个问题，为我们开发出了这个空间穿越通道 —— Context。</p>
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>看起来很高大上的Context使用起来却异常简单。假设我们有下面这样的组件结构。</p>
+              <h2 id="为什么需要单元测试"><a href="#为什么需要单元测试" class="headerlink" title="为什么需要单元测试"></a>为什么需要单元测试</h2><ul>
+<li>正确性：测试可以验证代码的正确性，在上线前做到心里有底</li>
+<li>自动化：当然手工也可以测试，通过console可以打印出内部信息，但是这是一次性的事情，下次测试还需要从头来过，效率不能得到保证。通过编写测试用例，可以做到一次编写，多次运行</li>
+<li>解释性：测试用例用于测试接口、模块的重要性，那么在测试用例中就会涉及如何使用这些API。其他开发人员如果要使用这些API，那阅读测试用例是一种很好地途径，有时比文档说明更清晰</li>
+<li>驱动开发，指导设计：代码被测试的前提是代码本身的可测试性，那么要保证代码的可测试性，就需要在开发中注意API的设计，TDD将测试前移就是起到这么一个作用</li>
+<li>保证重构：互联网行业产品迭代速度很快，迭代后必然存在代码重构的过程，那怎么才能保证重构后代码的质量呢？有测试用例做后盾，就可以大胆的进行重构</li>
+</ul>
           
       
     </div>
@@ -356,12 +359,12 @@
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Other/">Other</a></li></ul>
     </div>
 
       
         <p class="article-more-link">
-          <a href="/2017/03/09/React中的“虫洞”——Context/#more">阅读全文 >></a>
+          <a href="/2017/04/23/前端单元测试/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -380,11 +383,11 @@
 
 
   
-    <article id="post-React Element、Component和ReactClass的概念" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Curl调试restful接口" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/03/08/React Element、Component和ReactClass的概念/" class="article-date">
-      <time datetime="2017-03-08T07:56:37.000Z" itemprop="datePublished">2017-03-08</time>
+      <a href="/2017/04/20/Curl调试restful接口/" class="article-date">
+      <time datetime="2017-04-20T08:32:04.000Z" itemprop="datePublished">2017-04-20</time>
 </a>
 
 
@@ -399,7 +402,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/08/React Element、Component和ReactClass的概念/">React Element、Component和ReactClass的概念</a>
+      <a class="article-title" href="/2017/04/20/Curl调试restful接口/">Curl调试restful接口</a>
     </h1>
   
 
@@ -409,9 +412,10 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <p>在使用 React 的时候，会出现几个看起来相互混淆的概念，例如：Element，Class 和 Component。</p>
-<p>我们先来看看 Element。</p>
-<h2 id="Element"><a href="#Element" class="headerlink" title="Element"></a>Element</h2><p>Element 是后文 Class 的实例，React 通过解析每一个创建的 Element， 计算出需要对 DOM 进行的实际操作来完成渲染的。</p>
+              <p>Curl可以很方便的配合restful接口调试，不过，其参数相当复杂，这里把最常用的CRUD方法简要记录一下。</p>
+<blockquote>
+<p>curl是利用URL语法在命令行方式下工作的开源文件传输工具。它被广泛应用在Unix、多种Linux发行版中，并且有DOS和Win32、Win64下的移植版本。——百度百科</p>
+</blockquote>
           
       
     </div>
@@ -422,12 +426,12 @@
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Other/">Other</a></li></ul>
     </div>
 
       
         <p class="article-more-link">
-          <a href="/2017/03/08/React Element、Component和ReactClass的概念/#more">阅读全文 >></a>
+          <a href="/2017/04/20/Curl调试restful接口/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -446,11 +450,11 @@
 
 
   
-    <article id="post-React组件生命周期" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Canvas图像处理" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/03/07/React组件生命周期/" class="article-date">
-      <time datetime="2017-03-07T02:19:01.000Z" itemprop="datePublished">2017-03-07</time>
+      <a href="/2017/04/13/Canvas图像处理/" class="article-date">
+      <time datetime="2017-04-13T13:41:09.000Z" itemprop="datePublished">2017-04-13</time>
 </a>
 
 
@@ -465,7 +469,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/07/React组件生命周期/">React组件生命周期</a>
+      <a class="article-title" href="/2017/04/13/Canvas图像处理/">Canvas图像处理</a>
     </h1>
   
 
@@ -475,9 +479,11 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <p>在组件的整个生命周期中，随着该组件的props或者state发生改变，其DOM表现也会有相应的变化。一个组件就是一个状态机，对于特定地输入，它总返回一致的输出。  </p>
-<p>一个React组件的生命周期分为三个部分：实例化、存在期和销毁时。</p>
-<h3 id="实例化"><a href="#实例化" class="headerlink" title="实例化"></a>实例化</h3><p>当组件在客户端被实例化，第一次被创建时，以下方法依次被调用：  </p>
+              <p>Canvas图像处理能力，主要是依赖ImageData 对象，该对象中存储着canvas对象真实的像素数据，它包含以下几个只读属性：width，图片宽度；height，图片高度，单位均是像素；data，Uint8ClampedArray类型的一维数组，包含着RGBA格式的整型数据，范围在0至255之间（包括255）。</p>
+<p>最关键的就是这个data属性，它里面包含图像的初始像素数据，且是可以更改的。它是一个类型化数组，按照rgba的色彩模型，每4项描述一个像素点的色彩信息。举个例子：</p>
+<blockquote>
+<p>[255,0,0,0,0,255,0,0,0,0,255,0]</p>
+</blockquote>
           
       
     </div>
@@ -488,12 +494,12 @@
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Canvas/">Canvas</a></li></ul>
     </div>
 
       
         <p class="article-more-link">
-          <a href="/2017/03/07/React组件生命周期/#more">阅读全文 >></a>
+          <a href="/2017/04/13/Canvas图像处理/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -512,6 +518,412 @@
 
 
   
+    <article id="post-H5图片上传本地预览" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/04/13/H5图片上传本地预览/" class="article-date">
+      <time datetime="2017-04-13T05:43:53.000Z" itemprop="datePublished">2017-04-13</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/13/H5图片上传本地预览/">H5图片上传本地预览</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>这个例子之前也曾多次写过，主要是依赖ES5提供的Blob对象。</p>
+<h2 id="Blob简介"><a href="#Blob简介" class="headerlink" title="Blob简介"></a>Blob简介</h2><p>ECMAScript 5引入了Blob对象，允许直接操作二进制数据。Blob对象是一个代表二进制数据的基本对象，在它的基础上，又衍生出一系列相关的API，用来操作文件。</p>
+<blockquote>
+<p>File对象：负责处理那些以文件形式存在的二进制数据，也就是操作本地文件；<br>FileList对象：File对象的网页表单接口；<br>FileReader对象：负责将二进制数据读入内存内容；<br>URL对象：用于对二进制数据生成URL。</p>
+</blockquote>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/H5/">H5</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2017/04/13/H5图片上传本地预览/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Canvas图片下载" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/04/13/Canvas图片下载/" class="article-date">
+      <time datetime="2017-04-13T04:23:10.000Z" itemprop="datePublished">2017-04-13</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/13/Canvas图片下载/">Canvas图片下载</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>在支持Canvas的浏览器中，实现图片下载非常简单，本文介绍了实现下载的具体方法。</p>
+<h2 id="关键API"><a href="#关键API" class="headerlink" title="关键API"></a>关键API</h2><p>HTMLCanvasElement.toBlob() 方法创造Blob对象，用以展示canvas上的图片；这个图片文件可以被缓存或保存到本地，由用户代理端自行决定。如不特别指明，图片的类型默认为 image/png，分辨率为96dpi。</p>
+<blockquote>
+<p>void canvas.toBlob(callback, type, encoderOptions);</p>
+</blockquote>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Canvas/">Canvas</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2017/04/13/Canvas图片下载/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Mac下brew安装Nginx及使用" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/04/12/Mac下brew安装Nginx及使用/" class="article-date">
+      <time datetime="2017-04-12T15:30:33.000Z" itemprop="datePublished">2017-04-12</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/12/Mac下brew安装Nginx及使用/">Mac下brew安装Nginx及使用</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>Homebrew是Mac中的一款软件包管理工具，通过brew可以很方便的在Mac中安装软件或者是卸载软件.一般Mac电脑会默认安装有brew.</p>
+<blockquote>
+<p>brew install nginx</p>
+</blockquote>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Other/">Other</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2017/04/12/Mac下brew安装Nginx及使用/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Canvas基础图形与动画" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/04/12/Canvas基础图形与动画/" class="article-date">
+      <time datetime="2017-04-12T00:56:22.000Z" itemprop="datePublished">2017-04-12</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/12/Canvas基础图形与动画/">Canvas基础图形与动画</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p><code>canvas</code>是 HTML5 新增的元素，可使用JavaScript脚本来绘制图形。基于渲染上下文的不同，WebGL使用canvas元素绘制三维图形，而本文主要围绕二维图形，也就是<code>canvas.getContext(&#39;2d&#39;)</code>。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">"canvas"</span> <span class="attr">width</span>=<span class="string">"500"</span> <span class="attr">height</span>=<span class="string">"500"</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>当没有设置宽度和高度的时候，canvas会初始化宽度为300像素和高度为150像素。</p>
+</blockquote>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Canvas/">Canvas</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2017/04/12/Canvas基础图形与动画/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-常用git命令" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/04/06/常用git命令/" class="article-date">
+      <time datetime="2017-04-06T05:04:43.000Z" itemprop="datePublished">2017-04-06</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/06/常用git命令/">常用git命令</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>我每天使用 Git ，但是很多命令记不住。</p>
+<p>一般来说，日常使用只要记住下图6个命令，就可以了。但是熟练使用，恐怕要记住60～100个命令。</p>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015120901.png" alt=""></p>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2017/04/06/常用git命令/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Canvas最佳实践（性能篇）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/04/06/Canvas最佳实践（性能篇）/" class="article-date">
+      <time datetime="2017-04-06T02:41:37.000Z" itemprop="datePublished">2017-04-06</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/06/Canvas最佳实践（性能篇）/">Canvas最佳实践（性能篇）</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p><img src="http://img.alicdn.com/tps/TB1uag1LpXXXXcoXpXXXXXXXXXX-900-500.jpg" alt="Canvas 最佳实践（性能篇）"></p>
+<p>Canvas 想必前端同学们都不陌生，它是 HTML5 新增的「画布」元素，允许我们使用 JavaScript 来绘制图形。目前，所有的主流浏览器都支持 Canvas。</p>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Canvas/">Canvas</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2017/04/06/Canvas最佳实践（性能篇）/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
   
 </div>
       <footer id="footer">

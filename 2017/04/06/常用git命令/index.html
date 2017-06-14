@@ -15,19 +15,19 @@
 
 
 
-<meta name="description" content="当我们写React时，我们总是通过改变State和传递Prop对view进行控制，有时，也会遇到一点小麻烦。 但是随着我们的应用变的越来越复杂，组件嵌套也变的越来越深，有时甚至要从最外层将一个数据一直传递到最里层（比如当前user的信息）。 幸运的是，React的开发者也意识到这个问题，为我们开发出了这个空间穿越通道 —— Context。 使用看起来很高大上的Context使用起来却异常简单。假">
-<meta name="keywords" content="React">
+<meta name="description" content="我每天使用 Git ，但是很多命令记不住。 一般来说，日常使用只要记住下图6个命令，就可以了。但是熟练使用，恐怕要记住60～100个命令。">
+<meta name="keywords" content="Git">
 <meta property="og:type" content="article">
-<meta property="og:title" content="React中的“虫洞”——Context">
-<meta property="og:url" content="http://wangzhanyong.com/2017/03/09/React中的“虫洞”——Context/index.html">
+<meta property="og:title" content="常用git命令">
+<meta property="og:url" content="http://wangzhanyong.com/2017/04/06/常用git命令/index.html">
 <meta property="og:site_name" content="Alex wang | 王占永">
-<meta property="og:description" content="当我们写React时，我们总是通过改变State和传递Prop对view进行控制，有时，也会遇到一点小麻烦。 但是随着我们的应用变的越来越复杂，组件嵌套也变的越来越深，有时甚至要从最外层将一个数据一直传递到最里层（比如当前user的信息）。 幸运的是，React的开发者也意识到这个问题，为我们开发出了这个空间穿越通道 —— Context。 使用看起来很高大上的Context使用起来却异常简单。假">
-<meta property="og:image" content="https://sfault-image.b0.upaiyun.com/327/129/3271294917-56ebbe546634a_articlex">
-<meta property="og:updated_time" content="2017-03-09T01:52:25.000Z">
+<meta property="og:description" content="我每天使用 Git ，但是很多命令记不住。 一般来说，日常使用只要记住下图6个命令，就可以了。但是熟练使用，恐怕要记住60～100个命令。">
+<meta property="og:image" content="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015120901.png">
+<meta property="og:updated_time" content="2017-04-06T05:14:21.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="React中的“虫洞”——Context">
-<meta name="twitter:description" content="当我们写React时，我们总是通过改变State和传递Prop对view进行控制，有时，也会遇到一点小麻烦。 但是随着我们的应用变的越来越复杂，组件嵌套也变的越来越深，有时甚至要从最外层将一个数据一直传递到最里层（比如当前user的信息）。 幸运的是，React的开发者也意识到这个问题，为我们开发出了这个空间穿越通道 —— Context。 使用看起来很高大上的Context使用起来却异常简单。假">
-<meta name="twitter:image" content="https://sfault-image.b0.upaiyun.com/327/129/3271294917-56ebbe546634a_articlex">
+<meta name="twitter:title" content="常用git命令">
+<meta name="twitter:description" content="我每天使用 Git ，但是很多命令记不住。 一般来说，日常使用只要记住下图6个命令，就可以了。但是熟练使用，恐怕要记住60～100个命令。">
+<meta name="twitter:image" content="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015120901.png">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -54,7 +54,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>React中的“虫洞”——Context | Alex wang | 王占永</title>
+<title>常用git命令 | Alex wang | 王占永</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -246,11 +246,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-React中的“虫洞”——Context" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-常用git命令" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/03/09/React中的“虫洞”——Context/" class="article-date">
-      <time datetime="2017-03-09T01:15:17.000Z" itemprop="datePublished">2017-03-09</time>
+      <a href="/2017/04/06/常用git命令/" class="article-date">
+      <time datetime="2017-04-06T05:04:43.000Z" itemprop="datePublished">2017-04-06</time>
 </a>
 
 
@@ -265,7 +265,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      React中的“虫洞”——Context
+      常用git命令
     </h1>
   
 
@@ -276,7 +276,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -286,28 +286,184 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>当我们写React时，我们总是通过改变State和传递Prop对view进行控制，有时，也会遇到一点小麻烦。</p>
-<p>但是随着我们的应用变的越来越复杂，组件嵌套也变的越来越深，有时甚至要从最外层将一个数据一直传递到最里层（比如当前user的信息）。</p>
-<p>幸运的是，React的开发者也意识到这个问题，为我们开发出了这个空间穿越通道 —— Context。</p>
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>看起来很高大上的Context使用起来却异常简单。假设我们有下面这样的组件结构。</p>
+        <p>我每天使用 Git ，但是很多命令记不住。</p>
+<p>一般来说，日常使用只要记住下图6个命令，就可以了。但是熟练使用，恐怕要记住60～100个命令。</p>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015120901.png" alt=""></p>
 <a id="more"></a>
-<p><img src="https://sfault-image.b0.upaiyun.com/327/129/3271294917-56ebbe546634a_articlex" alt=""></p>
-<h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><p>Child组件需要获取在App组件(父组件)中用户信息应该怎么办？有了Context，我们可以这么做。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="comment">// Component App</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</div><div class="line">  <span class="keyword">static</span> childContextTypes = &#123;</div><div class="line">    <span class="attr">user</span>: React.PropTypes.object.isRequired</div><div class="line">  &#125;</div><div class="line">  getChildContext() &#123;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">      <span class="attr">user</span>: <span class="keyword">this</span>.props.user</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  render() &#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      <span class="xml"><span class="tag">&lt;<span class="name">div</span> &gt;</span></span></div><div class="line">        <span class="tag">&lt;<span class="name">Child</span> /&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">// Component Child</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Child</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</div><div class="line">  <span class="keyword">static</span> contextTypes = &#123;</div><div class="line">    <span class="attr">user</span>: React.PropTypes.object.isRequired</div><div class="line">  &#125;</div><div class="line">  render() &#123;</div><div class="line">    <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>&#123;this.context.user.name&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//index.js</span></div><div class="line">ReactDOM.render(</div><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">App</span> <span class="attr">user</span>=<span class="string">&#123;&#123;name:</span>'<span class="attr">Alex</span>',<span class="attr">age:40</span>&#125;&#125; /&gt;</span>, </span></div><div class="line">document.getElementById('root')</div><div class="line">)</div></pre></td></tr></table></figure>
-<p>很简单吧，只要在外层定义一个<code>getChildContext</code>方法，在父层和里层分别制定<code>contextTypes</code>就可以直接在里层用<code>this.context</code>访问了，是不是很厉害，XD</p>
-<h3 id="在lifecycle方法中使用"><a href="#在lifecycle方法中使用" class="headerlink" title="在lifecycle方法中使用"></a>在lifecycle方法中使用</h3><p>根据官方的文档，Context在以下的lifecycle方法中也是可以使用的</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">void</span> componentWillReceiveProps(</div><div class="line">  object nextProps, object nextContext</div><div class="line">)</div><div class="line"></div><div class="line">boolean shouldComponentUpdate(</div><div class="line">  object nextProps, object nextState, object nextContext</div><div class="line">)</div><div class="line"></div><div class="line"><span class="keyword">void</span> componentWillUpdate(</div><div class="line">  object nextProps, object nextState, object nextContext</div><div class="line">)</div><div class="line"></div><div class="line"><span class="keyword">void</span> componentDidUpdate(</div><div class="line">  object prevProps, object prevState, object prevContext</div><div class="line">)</div></pre></td></tr></table></figure>
-<h3 id="stateless组件中使用"><a href="#stateless组件中使用" class="headerlink" title="stateless组件中使用"></a>stateless组件中使用</h3><p>同时，在最新的stateless组件中，也是可以使用Context的，而且更加简单。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">D</span>(<span class="params">props, context</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> (</div><div class="line">    <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>&#123;this.context.user.name&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></div><div class="line">  );</div><div class="line">&#125;</div><div class="line">D.contextTypes = &#123;</div><div class="line">  <span class="attr">user</span>: React.PropTypes.object.isRequired</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h2><p>既然Context使用起来如此方便，是不是就应该多多用它呢？<br>显然，抛开Context还处于刚刚公开，API不稳定不说，即使对于组件化的开发，到处用也不是一个好主意。<br>Context就像javascript中的全局变量，只有真正全局的东西才适合放在context中。</p>
-<p>比如：</p>
+<p>下面是我整理的常用 Git 命令清单。几个专用名词的译名如下。</p>
+<blockquote>
 <ul>
-<li>当前用户信息</li>
-<li>flux、redux的store</li>
-<li>session级别信息（语言，主题等）</li>
+<li>Workspace：工作区</li>
+<li>Index / Stage：暂存区</li>
+<li>Repository：仓库区（或本地仓库）</li>
+<li>Remote：远程仓库</li>
 </ul>
-<p>所以，当发现使用Context仅仅为了少打几个字而不考虑存放何种数据，那很可能用错Context了……</p>
-<p><a href="https://segmentfault.com/a/1190000004636213" target="_blank" rel="external">原文链接</a></p>
+</blockquote>
+<h2 id="一、新建代码库"><a href="#一、新建代码库" class="headerlink" title="一、新建代码库"></a>一、新建代码库</h2><blockquote>
+<pre><code># 在当前目录新建一个Git代码库
+$ git init
+
+# 新建一个目录，将其初始化为Git代码库
+$ git init [project-name]# 下载一个项目和它的整个代码历史
+$ git clone [url]
+</code></pre></blockquote>
+<h2 id="二、配置"><a href="#二、配置" class="headerlink" title="二、配置"></a>二、配置</h2><p>Git的设置文件为<code>.gitconfig</code>，它可以在用户主目录下（全局配置），也可以在项目目录下（项目配置）。</p>
+<blockquote>
+<pre><code># 显示当前的Git配置
+$ git config --list
+
+# 编辑Git配置文件
+$ git config -e [--global]# 设置提交代码时的用户信息
+$ git config [--global] user.name &quot;[name]&quot;
+$ git config [--global] user.email &quot;[email address]&quot;
+</code></pre></blockquote>
+<h2 id="三、增加-删除文件"><a href="#三、增加-删除文件" class="headerlink" title="三、增加/删除文件"></a>三、增加/删除文件</h2><blockquote>
+<pre><code># 添加指定文件到暂存区
+$ git add [file1][file2]...# 添加指定目录到暂存区，包括子目录
+$ git add [dir]# 添加当前目录的所有文件到暂存区
+$ git add .# 添加每个变化前，都会要求确认
+# 对于同一个文件的多处变化，可以实现分次提交
+$ git add -p
+
+# 删除工作区文件，并且将这次删除放入暂存区
+$ git rm [file1][file2]...# 停止追踪指定文件，但该文件会保留在工作区
+$ git rm --cached [file]# 改名文件，并且将这个改名放入暂存区
+$ git mv [file-original][file-renamed]
+</code></pre></blockquote>
+<h2 id="四、代码提交"><a href="#四、代码提交" class="headerlink" title="四、代码提交"></a>四、代码提交</h2><blockquote>
+<pre><code># 提交暂存区到仓库区
+$ git commit -m [message]# 提交暂存区的指定文件到仓库区
+$ git commit [file1][file2]...-m [message]# 提交工作区自上次commit之后的变化，直接到仓库区
+$ git commit -a
+
+# 提交时显示所有diff信息
+$ git commit -v
+
+# 使用一次新的commit，替代上一次提交
+# 如果代码没有任何新变化，则用来改写上一次commit的提交信息
+$ git commit --amend -m [message]# 重做上一次commit，并包括指定文件的新变化
+$ git commit --amend [file1][file2]...
+</code></pre></blockquote>
+<h2 id="五、分支"><a href="#五、分支" class="headerlink" title="五、分支"></a>五、分支</h2><blockquote>
+<pre><code># 列出所有本地分支
+$ git branch
+
+# 列出所有远程分支
+$ git branch -r
+
+# 列出所有本地分支和远程分支
+$ git branch -a
+
+# 新建一个分支，但依然停留在当前分支
+$ git branch [branch-name]# 新建一个分支，并切换到该分支
+$ git checkout -b [branch]# 新建一个分支，指向指定commit
+$ git branch [branch][commit]# 新建一个分支，与指定的远程分支建立追踪关系
+$ git branch --track [branch][remote-branch]# 切换到指定分支，并更新工作区
+$ git checkout [branch-name]# 切换到上一个分支
+$ git checkout -# 建立追踪关系，在现有分支与指定的远程分支之间
+$ git branch --set-upstream [branch][remote-branch]# 合并指定分支到当前分支
+$ git merge [branch]# 选择一个commit，合并进当前分支
+$ git cherry-pick [commit]# 删除分支
+$ git branch -d [branch-name]# 删除远程分支
+$ git push origin --delete [branch-name]
+$ git branch -dr [remote/branch]
+</code></pre></blockquote>
+<h2 id="六、标签"><a href="#六、标签" class="headerlink" title="六、标签"></a>六、标签</h2><blockquote>
+<pre><code># 列出所有tag
+$ git tag
+
+# 新建一个tag在当前commit
+$ git tag [tag]# 新建一个tag在指定commit
+$ git tag [tag][commit]# 删除本地tag
+$ git tag -d [tag]# 删除远程tag
+$ git push origin :refs/tags/[tagName]# 查看tag信息
+$ git show [tag]# 提交指定tag
+$ git push [remote][tag]# 提交所有tag
+$ git push [remote]--tags
+
+# 新建一个分支，指向某个tag
+$ git checkout -b [branch][tag]
+</code></pre></blockquote>
+<h2 id="七、查看信息"><a href="#七、查看信息" class="headerlink" title="七、查看信息"></a>七、查看信息</h2><blockquote>
+<pre><code># 显示有变更的文件
+$ git status
+
+# 显示当前分支的版本历史
+$ git log
+
+# 显示commit历史，以及每次commit发生变更的文件
+$ git log --stat
+
+# 搜索提交历史，根据关键词
+$ git log -S [keyword]# 显示某个commit之后的所有变动，每个commit占据一行
+$ git log [tag] HEAD --pretty=format:%s
+
+# 显示某个commit之后的所有变动，其&quot;提交说明&quot;必须符合搜索条件
+$ git log [tag] HEAD --grep feature
+
+# 显示某个文件的版本历史，包括文件改名
+$ git log --follow [file]
+$ git whatchanged [file]# 显示指定文件相关的每一次diff
+$ git log -p [file]# 显示过去5次提交
+$ git log -5--pretty --oneline
+
+# 显示所有提交过的用户，按提交次数排序
+$ git shortlog -sn
+
+# 显示指定文件是什么人在什么时间修改过
+$ git blame [file]# 显示暂存区和工作区的差异
+$ git diff
+
+# 显示暂存区和上一个commit的差异
+$ git diff --cached [file]# 显示工作区与当前分支最新commit之间的差异
+$ git diff HEAD
+
+# 显示两次提交之间的差异
+$ git diff [first-branch]...[second-branch]# 显示今天你写了多少行代码
+$ git diff --shortstat &quot;@{0 day ago}&quot;# 显示某次提交的元数据和内容变化
+$ git show [commit]# 显示某次提交发生变化的文件
+$ git show --name-only [commit]# 显示某次提交时，某个文件的内容
+$ git show [commit]:[filename]# 显示当前分支的最近几次提交
+$ git reflog
+</code></pre></blockquote>
+<h2 id="八、远程同步"><a href="#八、远程同步" class="headerlink" title="八、远程同步"></a>八、远程同步</h2><blockquote>
+<pre><code># 下载远程仓库的所有变动
+$ git fetch [remote]# 显示所有远程仓库
+$ git remote -v
+
+# 显示某个远程仓库的信息
+$ git remote show [remote]# 增加一个新的远程仓库，并命名
+$ git remote add [shortname][url]# 取回远程仓库的变化，并与本地分支合并
+$ git pull [remote][branch]# 上传本地指定分支到远程仓库
+$ git push [remote][branch]# 强行推送当前分支到远程仓库，即使有冲突
+$ git push [remote]--force
+
+# 推送所有分支到远程仓库
+$ git push [remote]--all
+</code></pre></blockquote>
+<h2 id="九、撤销"><a href="#九、撤销" class="headerlink" title="九、撤销"></a>九、撤销</h2><blockquote>
+<pre><code># 恢复暂存区的指定文件到工作区
+$ git checkout [file]# 恢复某个commit的指定文件到暂存区和工作区
+$ git checkout [commit][file]# 恢复暂存区的所有文件到工作区
+$ git checkout .# 重置暂存区的指定文件，与上一次commit保持一致，但工作区不变
+$ git reset [file]# 重置暂存区与工作区，与上一次commit保持一致
+$ git reset --hard
+
+# 重置当前分支的指针为指定commit，同时重置暂存区，但工作区不变
+$ git reset [commit]# 重置当前分支的HEAD为指定commit，同时重置暂存区和工作区，与指定commit一致
+$ git reset --hard [commit]# 重置当前HEAD为指定commit，但保持暂存区和工作区不变
+$ git reset --keep [commit]# 新建一个commit，用来撤销指定commit
+# 后者的所有变化都将被前者抵消，并且应用到当前分支
+$ git revert [commit]# 暂时将未提交的变化移除，稍后再移入
+$ git stash
+$ git stash pop
+</code></pre></blockquote>
+<h2 id="十、其他"><a href="#十、其他" class="headerlink" title="十、其他"></a>十、其他</h2><blockquote>
+<pre><code># 生成一个可供发布的压缩包
+$ git archive
+</code></pre></blockquote>
+<p>（完）</p>
+<p><a href="http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html" target="_blank" rel="external">原文链接</a></p>
 
       
     </div>
@@ -320,15 +476,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2017/03/28/Web中的坐标系/">
-                    Web中的坐标系
+                <a href="/2017/04/12/Canvas基础图形与动画/">
+                    Canvas基础图形与动画
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2017/03/08/React Element、Component和ReactClass的概念/">
-                    React Element、Component和ReactClass的概念
+                <a href="/2017/04/06/Canvas最佳实践（性能篇）/">
+                    Canvas最佳实践（性能篇）
                 </a>
             </div>
         
@@ -340,7 +496,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#使用"><span class="toc-number">1.</span> <span class="toc-text">使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#基本用法"><span class="toc-number">1.1.</span> <span class="toc-text">基本用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在lifecycle方法中使用"><span class="toc-number">1.2.</span> <span class="toc-text">在lifecycle方法中使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#stateless组件中使用"><span class="toc-number">1.3.</span> <span class="toc-text">stateless组件中使用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用场景"><span class="toc-number">2.</span> <span class="toc-text">使用场景</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、新建代码库"><span class="toc-number">1.</span> <span class="toc-text">一、新建代码库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、配置"><span class="toc-number">2.</span> <span class="toc-text">二、配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、增加-删除文件"><span class="toc-number">3.</span> <span class="toc-text">三、增加/删除文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、代码提交"><span class="toc-number">4.</span> <span class="toc-text">四、代码提交</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、分支"><span class="toc-number">5.</span> <span class="toc-text">五、分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、标签"><span class="toc-number">6.</span> <span class="toc-text">六、标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#七、查看信息"><span class="toc-number">7.</span> <span class="toc-text">七、查看信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#八、远程同步"><span class="toc-number">8.</span> <span class="toc-text">八、远程同步</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#九、撤销"><span class="toc-number">9.</span> <span class="toc-text">九、撤销</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#十、其他"><span class="toc-number">10.</span> <span class="toc-text">十、其他</span></a></li></ol>
         
     </div>
     <style>
@@ -371,7 +527,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/03/28/Web中的坐标系/" title="上一篇: Web中的坐标系">
+            <a href="/2017/04/12/Canvas基础图形与动画/" title="上一篇: Canvas基础图形与动画">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -379,7 +535,7 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2017/03/08/React Element、Component和ReactClass的概念/" title="下一篇: React Element、Component和ReactClass的概念">
+            <a href="/2017/04/06/Canvas最佳实践（性能篇）/" title="下一篇: Canvas最佳实践（性能篇）">
                 <i class="fa fa-angle-right"></i>
             </a>
         

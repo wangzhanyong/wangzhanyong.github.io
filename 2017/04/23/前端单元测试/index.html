@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="王占永" />
+
+
+
+<meta name="description" content="为什么需要单元测试 正确性：测试可以验证代码的正确性，在上线前做到心里有底 自动化：当然手工也可以测试，通过console可以打印出内部信息，但是这是一次性的事情，下次测试还需要从头来过，效率不能得到保证。通过编写测试用例，可以做到一次编写，多次运行 解释性：测试用例用于测试接口、模块的重要性，那么在测试用例中就会涉及如何使用这些API。其他开发人员如果要使用这些API，那阅读测试用例是一种很好地">
+<meta name="keywords" content="Other">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端单元测试">
+<meta property="og:url" content="http://wangzhanyong.com/2017/04/23/前端单元测试/index.html">
+<meta property="og:site_name" content="Alex wang | 王占永">
+<meta property="og:description" content="为什么需要单元测试 正确性：测试可以验证代码的正确性，在上线前做到心里有底 自动化：当然手工也可以测试，通过console可以打印出内部信息，但是这是一次性的事情，下次测试还需要从头来过，效率不能得到保证。通过编写测试用例，可以做到一次编写，多次运行 解释性：测试用例用于测试接口、模块的重要性，那么在测试用例中就会涉及如何使用这些API。其他开发人员如果要使用这些API，那阅读测试用例是一种很好地">
+<meta property="og:updated_time" content="2017-06-05T13:14:25.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端单元测试">
+<meta name="twitter:description" content="为什么需要单元测试 正确性：测试可以验证代码的正确性，在上线前做到心里有底 自动化：当然手工也可以测试，通过console可以打印出内部信息，但是这是一次性的事情，下次测试还需要从头来过，效率不能得到保证。通过编写测试用例，可以做到一次编写，多次运行 解释性：测试用例用于测试接口、模块的重要性，那么在测试用例中就会涉及如何使用这些API。其他开发人员如果要使用这些API，那阅读测试用例是一种很好地">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="Alex wang | 王占永" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/img/favicon.png">
+
+
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>前端单元测试 | Alex wang | 王占永</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: undefined,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: undefined
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/client.jpg" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">王占永</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">前端开发</p>
+        
+
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Canvas/">Canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/H5/">H5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/">Javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Other/">Other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">王占永</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/client.jpg" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">王占永</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">前端开发</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-前端单元测试" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/04/23/前端单元测试/" class="article-date">
+      <time datetime="2017-04-23T01:29:40.000Z" itemprop="datePublished">2017-04-23</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      前端单元测试
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Other/">Other</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="为什么需要单元测试"><a href="#为什么需要单元测试" class="headerlink" title="为什么需要单元测试"></a>为什么需要单元测试</h2><ul>
+<li>正确性：测试可以验证代码的正确性，在上线前做到心里有底</li>
+<li>自动化：当然手工也可以测试，通过console可以打印出内部信息，但是这是一次性的事情，下次测试还需要从头来过，效率不能得到保证。通过编写测试用例，可以做到一次编写，多次运行</li>
+<li>解释性：测试用例用于测试接口、模块的重要性，那么在测试用例中就会涉及如何使用这些API。其他开发人员如果要使用这些API，那阅读测试用例是一种很好地途径，有时比文档说明更清晰</li>
+<li>驱动开发，指导设计：代码被测试的前提是代码本身的可测试性，那么要保证代码的可测试性，就需要在开发中注意API的设计，TDD将测试前移就是起到这么一个作用</li>
+<li>保证重构：互联网行业产品迭代速度很快，迭代后必然存在代码重构的过程，那怎么才能保证重构后代码的质量呢？有测试用例做后盾，就可以大胆的进行重构</li>
+</ul>
+<a id="more"></a>
+<h2 id="前端相关的单元测试技术"><a href="#前端相关的单元测试技术" class="headerlink" title="前端相关的单元测试技术"></a>前端相关的单元测试技术</h2><h3 id="测试框架"><a href="#测试框架" class="headerlink" title="测试框架"></a>测试框架</h3><p>目前，前端的测试框架很多，像QUnit、jasmine、mocha、jest、intern等框架，这些框架各有特点，简单描述下，感兴趣的可以具体研究：</p>
+<ul>
+<li>Qunit: 该框架诞生之初是为了jquery的单元测试，后来独立出来不再依赖于jquery本身，但是其身上还是脱离不开jquery的影子</li>
+<li>jasmine: Behavior-Drive development(BDD)风格的测试框架，在业内较为流行,功能很全面，自带asssert、mock功能</li>
+<li>mocha: node社区大神tj的作品，可以在node和browser端使用，具有很强的灵活性，可以选择自己喜欢的断言库，选择测试结果的report</li>
+<li>intern: 看官方介绍该测试框架功能极其全面，似乎囊括了业内跟测试相关的所有功能</li>
+</ul>
+<h3 id="断言库"><a href="#断言库" class="headerlink" title="断言库"></a>断言库</h3><ul>
+<li>chai：应该是目前组流行的断言库了，支持TDD(assert)、BDD(expect、should)两个风格的断言库</li>
+<li>should.js: TJ的另外一个开源贡献</li>
+<li>expect.js:BDD风格的另外一个断言库，基于should.js,是mini版的BDD库</li>
+<li>assert(node自带核心模块): 可以在node中使用的断言模块</li>
+</ul>
+<h3 id="mock库"><a href="#mock库" class="headerlink" title="mock库"></a>mock库</h3><p>先来说说为什么需要mock吧：需要测试的单元依赖于外部的模块，而这些依赖的模块具有一些特点，例如不能控制、实现成本较高、操作危险等原因，不能直接使用依赖的模块，这样情况下就需要对其进行mock，也就是伪造依赖的模块。例如在使用XMLHttpRequest时，需要模拟http statusCode为404的情况，这种情况实际很难发生，必然要通过mock来实现测试。</p>
+<ul>
+<li>sinon.js: 目前使用最多的mock库，将其分为spies、stub、fake XMLHttpRequest、Fake server、Fake time几种，根据不同的场景进行选择。</li>
+</ul>
+<h3 id="test-runner"><a href="#test-runner" class="headerlink" title="test runner"></a>test runner</h3><ul>
+<li>karma: 设置测试需要的框架、环境、源文件、测试文件等，配置完后，就可以轻松地执行测试，只能在browser端。</li>
+<li>buster.js: 另外一个工具，不过目前处于deta版本，不仅可以在浏览器端，还可以在node端</li>
+</ul>
+<h2 id="单元测试技术的实现原理"><a href="#单元测试技术的实现原理" class="headerlink" title="单元测试技术的实现原理"></a>单元测试技术的实现原理</h2><ol>
+<li>测试框架：判断内部是否存在异常，存在则console出对应的text信息</li>
+<li>断言库：当actual值与expect值不一样时，就抛出异常，供外部测试框架检测到，这就是为什么有些测试框架可以自由选择断言库的原因，只要可以抛出异常，外部测试框架就可以工作。</li>
+<li>mock函数：创建一个新的函数，用这个函数来取代原来的函数，同时在这个新函数上添加一些额外的属性，例如called、calledWithArguments等信息</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">describe</span> (<span class="params">text, fn</span>) </span>&#123;</div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">        fn.apply(...);</div><div class="line">    &#125; <span class="keyword">catch</span>(e) &#123;</div><div class="line">        assert(text)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">while</span> (...) &#123;</div><div class="line">        beforeEach();</div><div class="line">        it(text, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">            assert();</div><div class="line">        &#125;);</div><div class="line">        afterEach();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">it</span>(<span class="params">text, fn</span>) </span>&#123;</div><div class="line">	...</div><div class="line">	fn(text)</div><div class="line">	...</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">assert</span> (<span class="params">expect, actual</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (expect not equla actual ) &#123;</div><div class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(text);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span> (<span class="params"></span>) </span>&#123;</div><div class="line">	...</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">spy</span>(<span class="params">cb</span>) </span>&#123;</div><div class="line">	<span class="keyword">var</span> proxy = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">		...</div><div class="line">	&#125;</div><div class="line">	proxy.called = <span class="literal">false</span>;</div><div class="line">	proxy.returnValue = <span class="string">'...'</span>;</div><div class="line">	...</div><div class="line">	return proxy;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> proxy = spy(fn); <span class="comment">// 得到一个mock函数</span></div></pre></td></tr></table></figure>
+<h2 id="如何写单元测试用例"><a href="#如何写单元测试用例" class="headerlink" title="如何写单元测试用例"></a>如何写单元测试用例</h2><h3 id="原则"><a href="#原则" class="headerlink" title="原则"></a>原则</h3><ul>
+<li>测试代码时，只考虑测试，不考虑内部实现</li>
+<li>数据尽量模拟现实，越靠近现实越好</li>
+<li>充分考虑数据的边界条件</li>
+<li>对重点、复杂、核心代码，重点测试</li>
+<li>利用AOP(beforeEach、afterEach),减少测试代码数量，避免无用功能</li>
+<li>测试、功能开发相结合，有利于设计和代码重构</li>
+</ul>
+<h3 id="TDD"><a href="#TDD" class="headerlink" title="TDD"></a>TDD</h3><p>一句话简单来说，就是先写测试，后写功能实现。TDD的目的是通过测试用例来指引实际的功能开发，让开发人员首先站在全局的视角来看待需求。具体定义可以查看维基;</p>
+<p>就个人而言，TDD不是一个技术，而是一种开发的指导思想。在目前互联网的开发环境下，业务开发很难做到TDD开发，一是因为需要更多时间编写单元测试用例；二是要求非常了解业务需求；三是要求开发人员有很强的代码设计能力。但是当我们写组件、工具方法、类库的时候，TDD就可以得到很好地使用。</p>
+<h3 id="BDD"><a href="#BDD" class="headerlink" title="BDD"></a>BDD</h3><p>行为驱动开发要求更多人员参与到软件的开发中来，鼓励开发者、QA、相关业务人员相互协作。BDD是由商业价值来驱动，通过用户接口(例如GUI)理解应用程序。详见维基.</p>
+<p><a href="http://zhenhua-lee.github.io/tech/test.html" target="_blank" rel="external">原文链接</a></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2017/06/05/Javascript递归遍历树/">
+                    Javascript递归遍历树
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2017/04/20/Curl调试restful接口/">
+                    Curl调试restful接口
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么需要单元测试"><span class="toc-number">1.</span> <span class="toc-text">为什么需要单元测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#前端相关的单元测试技术"><span class="toc-number">2.</span> <span class="toc-text">前端相关的单元测试技术</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#测试框架"><span class="toc-number">2.1.</span> <span class="toc-text">测试框架</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#断言库"><span class="toc-number">2.2.</span> <span class="toc-text">断言库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mock库"><span class="toc-number">2.3.</span> <span class="toc-text">mock库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#test-runner"><span class="toc-number">2.4.</span> <span class="toc-text">test runner</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#单元测试技术的实现原理"><span class="toc-number">3.</span> <span class="toc-text">单元测试技术的实现原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何写单元测试用例"><span class="toc-number">4.</span> <span class="toc-text">如何写单元测试用例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#原则"><span class="toc-number">4.1.</span> <span class="toc-text">原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TDD"><span class="toc-number">4.2.</span> <span class="toc-text">TDD</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BDD"><span class="toc-number">4.3.</span> <span class="toc-text">BDD</span></a></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"true"];
+    </script>
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2017/06/05/Javascript递归遍历树/" title="上一篇: Javascript递归遍历树">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2017/04/20/Curl调试restful接口/" title="下一篇: Curl调试restful接口">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/06/05/Javascript递归遍历树/">Javascript递归遍历树</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/23/前端单元测试/">前端单元测试</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/20/Curl调试restful接口/">Curl调试restful接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/13/Canvas图像处理/">Canvas图像处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/13/H5图片上传本地预览/">H5图片上传本地预览</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/13/Canvas图片下载/">Canvas图片下载</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/12/Mac下brew安装Nginx及使用/">Mac下brew安装Nginx及使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/12/Canvas基础图形与动画/">Canvas基础图形与动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/06/常用git命令/">常用git命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/06/Canvas最佳实践（性能篇）/">Canvas最佳实践（性能篇）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/28/Web中的坐标系/">Web中的坐标系</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/09/React中的“虫洞”——Context/">React中的“虫洞”——Context</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/08/React Element、Component和ReactClass的概念/">React Element、Component和ReactClass的概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/07/React组件生命周期/">React组件生命周期</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2017 王占永
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  
+                | 
+                <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a>
+            </div>
+        </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

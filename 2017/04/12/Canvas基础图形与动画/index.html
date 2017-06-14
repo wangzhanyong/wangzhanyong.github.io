@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="王占永" />
+
+
+
+<meta name="description" content="canvas是 HTML5 新增的元素，可使用JavaScript脚本来绘制图形。基于渲染上下文的不同，WebGL使用canvas元素绘制三维图形，而本文主要围绕二维图形，也就是canvas.getContext(&amp;#39;2d&amp;#39;)。 &amp;lt;canvas id=&quot;canvas&quot; width=&quot;500&quot; height=&quot;500&quot;&amp;gt;&amp;lt;/canvas&amp;gt;  当没有设置宽度和高度">
+<meta name="keywords" content="Canvas">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Canvas基础图形与动画">
+<meta property="og:url" content="http://wangzhanyong.com/2017/04/12/Canvas基础图形与动画/index.html">
+<meta property="og:site_name" content="Alex wang | 王占永">
+<meta property="og:description" content="canvas是 HTML5 新增的元素，可使用JavaScript脚本来绘制图形。基于渲染上下文的不同，WebGL使用canvas元素绘制三维图形，而本文主要围绕二维图形，也就是canvas.getContext(&amp;#39;2d&amp;#39;)。 &amp;lt;canvas id=&quot;canvas&quot; width=&quot;500&quot; height=&quot;500&quot;&amp;gt;&amp;lt;/canvas&amp;gt;  当没有设置宽度和高度">
+<meta property="og:image" content="https://mdn.mozillademos.org/files/223/Canvas_curves.png">
+<meta property="og:updated_time" content="2017-04-12T04:36:02.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Canvas基础图形与动画">
+<meta name="twitter:description" content="canvas是 HTML5 新增的元素，可使用JavaScript脚本来绘制图形。基于渲染上下文的不同，WebGL使用canvas元素绘制三维图形，而本文主要围绕二维图形，也就是canvas.getContext(&amp;#39;2d&amp;#39;)。 &amp;lt;canvas id=&quot;canvas&quot; width=&quot;500&quot; height=&quot;500&quot;&amp;gt;&amp;lt;/canvas&amp;gt;  当没有设置宽度和高度">
+<meta name="twitter:image" content="https://mdn.mozillademos.org/files/223/Canvas_curves.png">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="Alex wang | 王占永" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/img/favicon.png">
+
+
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>Canvas基础图形与动画 | Alex wang | 王占永</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: undefined,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: undefined
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/client.jpg" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">王占永</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">前端开发</p>
+        
+
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Canvas/">Canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/H5/">H5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/">Javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Other/">Other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">王占永</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/client.jpg" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">王占永</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">前端开发</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-Canvas基础图形与动画" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/04/12/Canvas基础图形与动画/" class="article-date">
+      <time datetime="2017-04-12T00:56:22.000Z" itemprop="datePublished">2017-04-12</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Canvas基础图形与动画
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Canvas/">Canvas</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><code>canvas</code>是 HTML5 新增的元素，可使用JavaScript脚本来绘制图形。基于渲染上下文的不同，WebGL使用canvas元素绘制三维图形，而本文主要围绕二维图形，也就是<code>canvas.getContext(&#39;2d&#39;)</code>。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">"canvas"</span> <span class="attr">width</span>=<span class="string">"500"</span> <span class="attr">height</span>=<span class="string">"500"</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>当没有设置宽度和高度的时候，canvas会初始化宽度为300像素和高度为150像素。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="基础图形绘制"><a href="#基础图形绘制" class="headerlink" title="基础图形绘制"></a>基础图形绘制</h2><h3 id="直线"><a href="#直线" class="headerlink" title="直线"></a>直线</h3><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">'canvas'</span>);</div><div class="line"><span class="keyword">var</span> ctx = canvas.getContext(<span class="string">'2d'</span>);</div><div class="line"></div><div class="line">ctx.strokeStyle=<span class="string">'red'</span>; <span class="comment">//设置描边颜色为红色，跟CSS颜色类似，默认是黑色</span></div><div class="line">ctx.moveTo(<span class="number">100</span>,<span class="number">100</span>); <span class="comment">//移动起始点到坐标(x,y)</span></div><div class="line">ctx.lineTo(<span class="number">200</span>,<span class="number">100</span>); <span class="comment">//画一条长度100像素的线段</span></div><div class="line">ctx.stroke();</div></pre></td></tr></table></figure>
+<h3 id="矩形"><a href="#矩形" class="headerlink" title="矩形"></a>矩形</h3><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">'canvas'</span>);</div><div class="line"><span class="keyword">var</span> ctx = canvas.getContext(<span class="string">'2d'</span>);</div><div class="line"></div><div class="line">ctx.storkeStyle=<span class="string">'blue'</span>;</div><div class="line">ctx.fillStyle=<span class="string">'red'</span>;</div><div class="line"></div><div class="line">ctx.fillRect(<span class="number">0</span>,<span class="number">0</span>,<span class="number">100</span>,<span class="number">100</span>);<span class="comment">//绘制一个填充矩形，参数（x,y,width,height）</span></div><div class="line">ctx.strokeRect(<span class="number">100</span>,<span class="number">100</span>,<span class="number">150</span>,<span class="number">150</span>);<span class="comment">//绘制描边矩形</span></div><div class="line"></div><div class="line"></div><div class="line">ctx.rect(<span class="number">250</span>,<span class="number">250</span>,<span class="number">100</span>,<span class="number">50</span>);</div><div class="line">ctx.fill();<span class="comment">//需调用ctx.fill()或ctx.stroke()，才能显示上面画的矩形</span></div><div class="line"></div><div class="line">ctx.clearRect(<span class="number">25</span>,<span class="number">25</span>,<span class="number">50</span>,<span class="number">50</span>); <span class="comment">//清除矩形区域，严格来说这不算是绘制API</span></div></pre></td></tr></table></figure>
+<h3 id="圆弧"><a href="#圆弧" class="headerlink" title="圆弧"></a>圆弧</h3><p><strong>arc(x, y, radius, startAngle, endAngle, anticlockwise)</strong></p>
+<p>画一个以（x,y）为圆心的以radius为半径的圆弧（圆），从startAngle开始到endAngle结束，按照anticlockwise给定的方向（默认为顺时针）来生成。</p>
+<p>该方法有六个参数：x,y为绘制圆弧所在圆上的圆心坐标。radius为半径。startAngle以及endAngle参数用弧度定义了开始以及结束的弧度。这些都是以x轴为基准。参数anticlockwise 为一个布尔值。为true时，是逆时针方向，否则顺时针方向。</p>
+<blockquote>
+<p>注意：arc()函数中的角度单位是弧度，不是度数。角度与弧度的js表达式:radians=(Math.PI/180)*degrees。</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">'canvas'</span>);</div><div class="line"><span class="keyword">var</span> ctx = canvas.getContext(<span class="string">'2d'</span>);</div><div class="line"></div><div class="line"><span class="comment">// 空心圆</span></div><div class="line">ctx.beginPath();</div><div class="line">ctx.arc(<span class="number">50</span>, <span class="number">50</span>, <span class="number">50</span>, <span class="number">0</span>, <span class="built_in">Math</span>.PI * <span class="number">2</span>, <span class="literal">true</span>);</div><div class="line">ctx.stroke();</div><div class="line"><span class="comment">// 实心圆</span></div><div class="line">ctx.beginPath();</div><div class="line">ctx.arc(<span class="number">150</span>, <span class="number">50</span>, <span class="number">50</span>, <span class="number">0</span>, <span class="built_in">Math</span>.PI * <span class="number">2</span>, <span class="literal">true</span>);</div><div class="line">ctx.fill();</div><div class="line"><span class="comment">// 逆时针圆弧</span></div><div class="line">ctx.beginPath();</div><div class="line">ctx.arc(<span class="number">250</span>, <span class="number">50</span>, <span class="number">50</span>, <span class="number">0</span>, <span class="built_in">Math</span>.PI * <span class="number">0.5</span>, <span class="literal">true</span>);</div><div class="line">ctx.stroke();</div><div class="line"><span class="comment">// 顺时针圆弧</span></div><div class="line">ctx.beginPath();</div><div class="line">ctx.arc(<span class="number">350</span>, <span class="number">50</span>, <span class="number">50</span>, <span class="number">0</span>, <span class="built_in">Math</span>.PI * <span class="number">1.5</span>, <span class="literal">false</span>);</div><div class="line">ctx.stroke();</div></pre></td></tr></table></figure>
+<h3 id="贝塞尔曲线"><a href="#贝塞尔曲线" class="headerlink" title="贝塞尔曲线"></a>贝塞尔曲线</h3><p>一次以及二次贝塞尔曲线都十分有用，一般用来绘制复杂有规律的图形。</p>
+<p><strong>quadraticCurveTo(cp1x, cp1y, x, y)</strong></p>
+<p>绘制贝塞尔曲线，cp1x,cp1y为控制点，x,y为结束点。</p>
+<p><strong>bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y)</strong></p>
+<p>绘制二次贝塞尔曲线，cp1x,cp1y为控制点一，cp2x,cp2y为控制点二，x,y为结束点。</p>
+<p><img src="https://mdn.mozillademos.org/files/223/Canvas_curves.png" alt=""></p>
+<p>上图能够很好的描述两者的关系，贝塞尔曲线有一个开始、结束点（蓝色）以及一个控制点（红色），而二次贝塞尔曲线使用两个控制点。</p>
+<p>参数x、y在这两个方法中都是结束点坐标。cp1x,cp1y为坐标中的第一个控制点，cp2x,cp2y为坐标中的第二个控制点。</p>
+<p>使用一次以及二次贝塞尔曲线是有一定的难度的，因为不同于像Adobe Illustrators这样的矢量软件，我们所绘制的曲线没有直接的视觉反馈给我们。这让绘制复杂的图形十分的困难。</p>
+<h4 id="一次贝塞尔曲线"><a href="#一次贝塞尔曲线" class="headerlink" title="一次贝塞尔曲线"></a>一次贝塞尔曲线</h4><p>这个例子使用多个贝塞尔曲线来渲染对话气泡。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">'canvas'</span>);</div><div class="line"><span class="keyword">var</span> ctx = canvas.getContext(<span class="string">'2d'</span>);</div><div class="line"></div><div class="line">ctx.beginPath();</div><div class="line">ctx.moveTo(<span class="number">75</span>, <span class="number">25</span>);</div><div class="line">ctx.quadraticCurveTo(<span class="number">25</span>, <span class="number">25</span>, <span class="number">25</span>, <span class="number">62.5</span>);</div><div class="line">ctx.quadraticCurveTo(<span class="number">25</span>, <span class="number">100</span>, <span class="number">50</span>, <span class="number">100</span>);</div><div class="line">ctx.quadraticCurveTo(<span class="number">50</span>, <span class="number">120</span>, <span class="number">30</span>, <span class="number">125</span>);</div><div class="line">ctx.quadraticCurveTo(<span class="number">60</span>, <span class="number">120</span>, <span class="number">65</span>, <span class="number">100</span>);</div><div class="line">ctx.quadraticCurveTo(<span class="number">125</span>, <span class="number">100</span>, <span class="number">125</span>, <span class="number">62.5</span>);</div><div class="line">ctx.quadraticCurveTo(<span class="number">125</span>, <span class="number">25</span>, <span class="number">75</span>, <span class="number">25</span>);</div><div class="line">ctx.stroke();</div></pre></td></tr></table></figure>
+<h4 id="二次贝塞尔曲线"><a href="#二次贝塞尔曲线" class="headerlink" title="二次贝塞尔曲线"></a>二次贝塞尔曲线</h4><p>这个例子使用贝塞尔曲线绘制心形。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">'canvas'</span>);</div><div class="line"><span class="keyword">var</span> ctx = canvas.getContext(<span class="string">'2d'</span>);</div><div class="line"></div><div class="line">ctx.beginPath();</div><div class="line">ctx.moveTo(<span class="number">75</span>, <span class="number">40</span>);</div><div class="line">ctx.bezierCurveTo(<span class="number">75</span>, <span class="number">37</span>, <span class="number">70</span>, <span class="number">25</span>, <span class="number">50</span>, <span class="number">25</span>);</div><div class="line">ctx.bezierCurveTo(<span class="number">20</span>, <span class="number">25</span>, <span class="number">20</span>, <span class="number">62.5</span>, <span class="number">20</span>, <span class="number">62.5</span>);</div><div class="line">ctx.bezierCurveTo(<span class="number">20</span>, <span class="number">80</span>, <span class="number">40</span>, <span class="number">102</span>, <span class="number">75</span>, <span class="number">120</span>);</div><div class="line">ctx.bezierCurveTo(<span class="number">110</span>, <span class="number">102</span>, <span class="number">130</span>, <span class="number">80</span>, <span class="number">130</span>, <span class="number">62.5</span>);</div><div class="line">ctx.bezierCurveTo(<span class="number">130</span>, <span class="number">62.5</span>, <span class="number">130</span>, <span class="number">25</span>, <span class="number">100</span>, <span class="number">25</span>);</div><div class="line">ctx.bezierCurveTo(<span class="number">85</span>, <span class="number">25</span>, <span class="number">75</span>, <span class="number">37</span>, <span class="number">75</span>, <span class="number">40</span>);</div><div class="line">ctx.fill();</div></pre></td></tr></table></figure>
+<h2 id="动画"><a href="#动画" class="headerlink" title="动画"></a>动画</h2><p>canvas动画是逐帧动画，元素的视觉变化，主要依靠不停的清除画布和绘制该元素的新变化。不停的重绘是相当费时的，性能依赖于电脑的速度。</p>
+<h3 id="动画的基本步骤"><a href="#动画的基本步骤" class="headerlink" title="动画的基本步骤"></a>动画的基本步骤</h3><p>你需要进行以下一些步骤来画出一帧：</p>
+<ol>
+<li><p>清空 canvas</p>
+<p> 除非接下来要画的内容会完全充满 canvas （例如背景图），否则你需要清空所有。最简单的做法就是用 clearRect 方法。</p>
+</li>
+<li><p>保存 canvas 状态</p>
+<p> 如果你要改变一些会改变 canvas 状态的设置（样式，变形之类的），又要在每画一帧之时都是原始状态的话，你需要先保存一下。</p>
+</li>
+<li><p>绘制动画图形（animated shapes）</p>
+<p> 这一步才是重绘动画帧。</p>
+</li>
+<li><p>恢复 canvas 状态 </p>
+<p> 如果已经保存了 canvas 的状态，可以先恢复它，然后重绘下一帧。</p>
+</li>
+</ol>
+<h3 id="操控动画"><a href="#操控动画" class="headerlink" title="操控动画"></a>操控动画</h3><p>上面的步骤只是绘制了动画的一帧，为了实现动画，我们需要一些可以定时执行重绘的方法。有两种方法可以实现这样的动画操控。一是通过 setInterval 或 setTimeout 方法来控制定时绘制。二是，通过window.requestAnimationFrame()来定期执行一个绘制函数。现代浏览器（IE10及以上）基本都支持该方法，以下例子均采用window.requestAnimationFrame()。</p>
+<h4 id="一个简单示例"><a href="#一个简单示例" class="headerlink" title="一个简单示例"></a>一个简单示例</h4><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">'canvas'</span>);</div><div class="line"><span class="keyword">var</span> ctx = canvas.getContext(<span class="string">'2d'</span>);</div><div class="line"><span class="keyword">var</span> raf;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fill</span>(<span class="params"></span>) </span>&#123;</div><div class="line">	ctx.fillStyle = <span class="string">'rgba(255,255,255,1)'</span></div><div class="line">	ctx.fillRect(<span class="number">0</span>, <span class="number">0</span>, canvas.width, canvas.height)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> x = <span class="number">0</span>,</div><div class="line">    y = <span class="number">0</span>;</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">draw</span>(<span class="params"></span>) </span>&#123;</div><div class="line">	fill()<span class="comment">//填成画布背景色，根据需要，也可以采用清除画布的方式</span></div><div class="line">	ctx.save()</div><div class="line">	ctx.beginPath()</div><div class="line">	ctx.strokeStyle = <span class="string">'red'</span></div><div class="line">	ctx.arc(x, y, <span class="number">10</span>, <span class="number">0</span>, <span class="built_in">Math</span>.PI * <span class="number">2</span>)</div><div class="line">	ctx.stroke()</div><div class="line">	ctx.restore()</div><div class="line">	x += <span class="number">10</span></div><div class="line">	y += <span class="number">10</span></div><div class="line">	<span class="keyword">if</span> (x &gt; <span class="number">500</span>) &#123;<span class="comment">//结束动画条件</span></div><div class="line">		cancelAnimationFrame(raf)</div><div class="line">		<span class="keyword">return</span>;</div><div class="line">	&#125;</div><div class="line">	raf = requestAnimationFrame(draw)</div><div class="line">&#125;</div><div class="line"></div><div class="line">draw()</div></pre></td></tr></table></figure>
+<h4 id="较复杂的例子"><a href="#较复杂的例子" class="headerlink" title="较复杂的例子"></a>较复杂的例子</h4><figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> sun = <span class="keyword">new</span> Image();</div><div class="line"><span class="keyword">var</span> moon = <span class="keyword">new</span> Image();</div><div class="line"><span class="keyword">var</span> earth = <span class="keyword">new</span> Image();</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">init</span>(<span class="params"></span>) </span>&#123;</div><div class="line">	sun.src = <span class="string">'https://mdn.mozillademos.org/files/1456/Canvas_sun.png'</span>;</div><div class="line">	moon.src = <span class="string">'https://mdn.mozillademos.org/files/1443/Canvas_moon.png'</span>;</div><div class="line">	earth.src = <span class="string">'https://mdn.mozillademos.org/files/1429/Canvas_earth.png'</span>;</div><div class="line">	<span class="built_in">window</span>.requestAnimationFrame(draw);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">draw</span>(<span class="params"></span>) </span>&#123;</div><div class="line">	<span class="keyword">var</span> ctx = <span class="built_in">document</span>.getElementById(<span class="string">'canvas'</span>).getContext(<span class="string">'2d'</span>);</div><div class="line">	</div><div class="line">	ctx.globalCompositeOperation = <span class="string">'destination-over'</span>;</div><div class="line">	ctx.clearRect(<span class="number">0</span>, <span class="number">0</span>, <span class="number">300</span>, <span class="number">300</span>); <span class="comment">// clear canvas</span></div><div class="line">	</div><div class="line">	ctx.fillStyle = <span class="string">'rgba(0,0,0,0.4)'</span>;</div><div class="line">	ctx.strokeStyle = <span class="string">'rgba(0,153,255,0.4)'</span>;</div><div class="line">	ctx.save();</div><div class="line">	ctx.translate(<span class="number">150</span>, <span class="number">150</span>);</div><div class="line">	</div><div class="line">	<span class="comment">// Earth</span></div><div class="line">	<span class="keyword">var</span> time = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">	ctx.rotate(((<span class="number">2</span> * <span class="built_in">Math</span>.PI) / <span class="number">60</span>) * time.getSeconds() + ((<span class="number">2</span> * <span class="built_in">Math</span>.PI) / <span class="number">60000</span>) * time.getMilliseconds());</div><div class="line">	ctx.translate(<span class="number">105</span>, <span class="number">0</span>);</div><div class="line">	ctx.fillRect(<span class="number">0</span>, <span class="number">-12</span>, <span class="number">50</span>, <span class="number">24</span>); <span class="comment">// Shadow</span></div><div class="line">	ctx.drawImage(earth, <span class="number">-12</span>, <span class="number">-12</span>);</div><div class="line">	</div><div class="line">	<span class="comment">// Moon</span></div><div class="line">	ctx.save();</div><div class="line">	ctx.rotate(((<span class="number">2</span> * <span class="built_in">Math</span>.PI) / <span class="number">6</span>) * time.getSeconds() + ((<span class="number">2</span> * <span class="built_in">Math</span>.PI) / <span class="number">6000</span>) * time.getMilliseconds());</div><div class="line">	ctx.translate(<span class="number">0</span>, <span class="number">28.5</span>);</div><div class="line">	ctx.drawImage(moon, <span class="number">-3.5</span>, <span class="number">-3.5</span>);</div><div class="line">	ctx.restore();</div><div class="line">	</div><div class="line">	ctx.restore();</div><div class="line">	</div><div class="line">	ctx.beginPath();</div><div class="line">	ctx.arc(<span class="number">150</span>, <span class="number">150</span>, <span class="number">105</span>, <span class="number">0</span>, <span class="built_in">Math</span>.PI * <span class="number">2</span>, <span class="literal">false</span>); <span class="comment">// Earth orbit</span></div><div class="line">	ctx.stroke();</div><div class="line">	</div><div class="line">	ctx.drawImage(sun, <span class="number">0</span>, <span class="number">0</span>, <span class="number">300</span>, <span class="number">300</span>);</div><div class="line">	</div><div class="line">	<span class="built_in">window</span>.requestAnimationFrame(draw);</div><div class="line">&#125;</div><div class="line"></div><div class="line">init();</div></pre></td></tr></table></figure>
+<p>本文完</p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API" target="_blank" rel="external">参考文档</a></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2017/04/12/Mac下brew安装Nginx及使用/">
+                    Mac下brew安装Nginx及使用
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2017/04/06/常用git命令/">
+                    常用git命令
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#基础图形绘制"><span class="toc-number">1.</span> <span class="toc-text">基础图形绘制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#直线"><span class="toc-number">1.1.</span> <span class="toc-text">直线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#矩形"><span class="toc-number">1.2.</span> <span class="toc-text">矩形</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#圆弧"><span class="toc-number">1.3.</span> <span class="toc-text">圆弧</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#贝塞尔曲线"><span class="toc-number">1.4.</span> <span class="toc-text">贝塞尔曲线</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#一次贝塞尔曲线"><span class="toc-number">1.4.1.</span> <span class="toc-text">一次贝塞尔曲线</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二次贝塞尔曲线"><span class="toc-number">1.4.2.</span> <span class="toc-text">二次贝塞尔曲线</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#动画"><span class="toc-number">2.</span> <span class="toc-text">动画</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#动画的基本步骤"><span class="toc-number">2.1.</span> <span class="toc-text">动画的基本步骤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#操控动画"><span class="toc-number">2.2.</span> <span class="toc-text">操控动画</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#一个简单示例"><span class="toc-number">2.2.1.</span> <span class="toc-text">一个简单示例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#较复杂的例子"><span class="toc-number">2.2.2.</span> <span class="toc-text">较复杂的例子</span></a></li></ol></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"true"];
+    </script>
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2017/04/12/Mac下brew安装Nginx及使用/" title="上一篇: Mac下brew安装Nginx及使用">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2017/04/06/常用git命令/" title="下一篇: 常用git命令">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/06/05/Javascript递归遍历树/">Javascript递归遍历树</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/23/前端单元测试/">前端单元测试</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/20/Curl调试restful接口/">Curl调试restful接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/13/Canvas图像处理/">Canvas图像处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/13/H5图片上传本地预览/">H5图片上传本地预览</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/13/Canvas图片下载/">Canvas图片下载</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/12/Mac下brew安装Nginx及使用/">Mac下brew安装Nginx及使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/12/Canvas基础图形与动画/">Canvas基础图形与动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/06/常用git命令/">常用git命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/06/Canvas最佳实践（性能篇）/">Canvas最佳实践（性能篇）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/28/Web中的坐标系/">Web中的坐标系</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/09/React中的“虫洞”——Context/">React中的“虫洞”——Context</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/08/React Element、Component和ReactClass的概念/">React Element、Component和ReactClass的概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/07/React组件生命周期/">React组件生命周期</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2017 王占永
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  
+                | 
+                <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a>
+            </div>
+        </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

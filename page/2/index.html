@@ -14,11 +14,14 @@
 <meta name="author" content="王占永" />
 
 
+    
+    
+
 
 <meta name="description" content="Web,SPA,Vuejs,Reactjs,Javascript,HTML,CSS,前端开发">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Alex wang | 王占永">
-<meta property="og:url" content="http://wangzhanyong.com/archives/2017/index.html">
+<meta property="og:url" content="http://wangzhanyong.com/page/2/index.html">
 <meta property="og:site_name" content="Alex wang | 王占永">
 <meta property="og:description" content="Web,SPA,Vuejs,Reactjs,Javascript,HTML,CSS,前端开发">
 <meta name="twitter:card" content="summary">
@@ -50,7 +53,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Archives: 2017 | Alex wang | 王占永</title>
+<title>Alex wang | 王占永</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -59,9 +62,9 @@
     var yiliaConfig = {
         fancybox: true,
         animate: undefined,
-        isHome: false,
+        isHome: true,
         isPost: false,
-        isArchive: true,
+        isArchive: false,
         isTag: false,
         isCategory: false,
         fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
@@ -244,355 +247,276 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-Web中的坐标系" class="article article-type-post" itemscope itemprop="blogPost">
   
+    <div class="article-meta">
+      <a href="/2017/03/28/Web中的坐标系/" class="article-date">
+      <time datetime="2017-03-28T01:42:41.000Z" itemprop="datePublished">2017-03-28</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/28/Web中的坐标系/">Web中的坐标系</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>最近在看<a href="http://www.w3cplus.com" target="_blank" rel="external">大漠</a>的Canvas相关文章，看到关于Web坐标系相关介绍，深有体会。弄清楚了Web中的坐标，对CSS相关定位方面的理解，就会清晰很多。</p>
+<h2 id="笛卡坐标系"><a href="#笛卡坐标系" class="headerlink" title="笛卡坐标系"></a>笛卡坐标系</h2><p>在数学里，我们学过一种坐标系统，叫作笛卡坐标系（Cartesian Coordinate system），这个坐标系统也称为<strong>直角坐标系</strong>，是一种正交坐标系。</p>
+<p><img src="http://wangzhanyong.com/images/cords/Cartesian-coordinate-system-with-circle.svg.png" alt=""></p>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2017/03/28/Web中的坐标系/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2017/06/05/Javascript递归遍历树/" class="archive-article-date">
-      <time datetime="2017-06-05T02:55:14.000Z" itemprop="datePublished">06-05</time>
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-React中的“虫洞”——Context" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/03/09/React中的“虫洞”——Context/" class="article-date">
+      <time datetime="2017-03-09T01:15:17.000Z" itemprop="datePublished">2017-03-09</time>
 </a>
 
 
-        </div>
-         
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/05/Javascript递归遍历树/">Javascript递归遍历树</a>
+      <a class="article-title" href="/2017/03/09/React中的“虫洞”——Context/">React中的“虫洞”——Context</a>
     </h1>
   
 
-        <div class="article-info info-on-archive">
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
           
+              <p>当我们写React时，我们总是通过改变State和传递Prop对view进行控制，有时，也会遇到一点小麻烦。</p>
+<p>但是随着我们的应用变的越来越复杂，组件嵌套也变的越来越深，有时甚至要从最外层将一个数据一直传递到最里层（比如当前user的信息）。</p>
+<p>幸运的是，React的开发者也意识到这个问题，为我们开发出了这个空间穿越通道 —— Context。</p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>看起来很高大上的Context使用起来却异常简单。假设我们有下面这样的组件结构。</p>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
 
-          
+      
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
     </div>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+        <p class="article-more-link">
+          <a href="/2017/03/09/React中的“虫洞”——Context/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
   </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2017/04/23/前端单元测试/" class="archive-article-date">
-      <time datetime="2017-04-23T01:29:40.000Z" itemprop="datePublished">04-23</time>
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-React Element、Component和ReactClass的概念" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/03/08/React Element、Component和ReactClass的概念/" class="article-date">
+      <time datetime="2017-03-08T07:56:37.000Z" itemprop="datePublished">2017-03-08</time>
 </a>
 
 
-        </div>
-         
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/23/前端单元测试/">前端单元测试</a>
+      <a class="article-title" href="/2017/03/08/React Element、Component和ReactClass的概念/">React Element、Component和ReactClass的概念</a>
     </h1>
   
 
-        <div class="article-info info-on-archive">
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
           
+              <p>在使用 React 的时候，会出现几个看起来相互混淆的概念，例如：Element，Class 和 Component。</p>
+<p>我们先来看看 Element。</p>
+<h2 id="Element"><a href="#Element" class="headerlink" title="Element"></a>Element</h2><p>Element 是后文 Class 的实例，React 通过解析每一个创建的 Element， 计算出需要对 DOM 进行的实际操作来完成渲染的。</p>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
 
-          
+      
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Other/">Other</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
     </div>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+        <p class="article-more-link">
+          <a href="/2017/03/08/React Element、Component和ReactClass的概念/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
   </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2017/04/20/Curl调试restful接口/" class="archive-article-date">
-      <time datetime="2017-04-20T08:32:04.000Z" itemprop="datePublished">04-20</time>
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-React组件生命周期" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/03/07/React组件生命周期/" class="article-date">
+      <time datetime="2017-03-07T02:19:01.000Z" itemprop="datePublished">2017-03-07</time>
 </a>
 
 
-        </div>
-         
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/20/Curl调试restful接口/">Curl调试restful接口</a>
+      <a class="article-title" href="/2017/03/07/React组件生命周期/">React组件生命周期</a>
     </h1>
   
 
-        <div class="article-info info-on-archive">
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
           
+              <p>在组件的整个生命周期中，随着该组件的props或者state发生改变，其DOM表现也会有相应的变化。一个组件就是一个状态机，对于特定地输入，它总返回一致的输出。  </p>
+<p>一个React组件的生命周期分为三个部分：实例化、存在期和销毁时。</p>
+<h3 id="实例化"><a href="#实例化" class="headerlink" title="实例化"></a>实例化</h3><p>当组件在客户端被实例化，第一次被创建时，以下方法依次被调用：  </p>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
 
-          
+      
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Other/">Other</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
     </div>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2017/04/13/Canvas图像处理/" class="archive-article-date">
-      <time datetime="2017-04-13T13:41:09.000Z" itemprop="datePublished">04-13</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/13/Canvas图像处理/">Canvas图像处理</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Canvas/">Canvas</a></li></ul>
+      
+        <p class="article-more-link">
+          <a href="/2017/03/07/React组件生命周期/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
     </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+    
   </div>
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2017/04/13/H5图片上传本地预览/" class="archive-article-date">
-      <time datetime="2017-04-13T05:43:53.000Z" itemprop="datePublished">04-13</time>
-</a>
 
 
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/13/H5图片上传本地预览/">H5图片上传本地预览</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/H5/">H5</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2017/04/13/Canvas图片下载/" class="archive-article-date">
-      <time datetime="2017-04-13T04:23:10.000Z" itemprop="datePublished">04-13</time>
-</a>
 
 
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/13/Canvas图片下载/">Canvas图片下载</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Canvas/">Canvas</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2017/04/12/Mac下brew安装Nginx及使用/" class="archive-article-date">
-      <time datetime="2017-04-12T15:30:33.000Z" itemprop="datePublished">04-12</time>
-</a>
 
 
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/12/Mac下brew安装Nginx及使用/">Mac下brew安装Nginx及使用</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Other/">Other</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2017/04/12/Canvas基础图形与动画/" class="archive-article-date">
-      <time datetime="2017-04-12T00:56:22.000Z" itemprop="datePublished">04-12</time>
-</a>
 
 
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/12/Canvas基础图形与动画/">Canvas基础图形与动画</a>
-    </h1>
-  
 
-        <div class="article-info info-on-archive">
-          
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Canvas/">Canvas</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2017/04/06/常用git命令/" class="archive-article-date">
-      <time datetime="2017-04-06T05:04:43.000Z" itemprop="datePublished">04-06</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/06/常用git命令/">常用git命令</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2017/04/06/Canvas最佳实践（性能篇）/" class="archive-article-date">
-      <time datetime="2017-04-06T02:41:37.000Z" itemprop="datePublished">04-06</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/06/Canvas最佳实践（性能篇）/">Canvas最佳实践（性能篇）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Canvas/">Canvas</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
-  
-
-    
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2017/page/2/">2</a><a class="extend next" rel="next" href="/archives/2017/page/2/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
     </nav>
   
-
 </div>
       <footer id="footer">
     <div class="outer">

@@ -2,16 +2,12 @@
 <html lang="zh-Hans">
 <head>
 
-    <!--[if lt IE 9]>
-        <style>body {display: none; background: none !important} </style>
-        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
-    <![endif]-->
-
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="format-detection" content="telephone=no" />
-<meta name="author" content="王占永" />
+<meta name="author" content="前端记事" />
+<!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" /> -->
 
 
 
@@ -19,9 +15,10 @@
 <meta name="keywords" content="Javascript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Javascript递归遍历树">
-<meta property="og:url" content="http://wangzhanyong.com/2017/06/05/Javascript递归遍历树/index.html">
-<meta property="og:site_name" content="Alex wang | 王占永">
+<meta property="og:url" content="wangzhanyong.com/2017/06/05/Javascript递归遍历树/index.html">
+<meta property="og:site_name" content="前端记事 | Alex Wang">
 <meta property="og:description" content="递归是一个很常用的算法，虽然，因为调用栈的原因，资源消耗比较大，但其简单优雅的用法，使之广受欢迎。递归常用在不可预期层级数的树形数据结构遍历。 递归有三个基本的概念：入栈、出栈、出口。这三个概念说简单也简单，说复杂也复杂，关键在于对函数的理解，这里不展开讨论该内容。 由于，经常需要在前端遍历菜单等树形结构，又不想每次翻以前的夹杂着业务逻辑的代码，这里干脆做一个原始的深度优先遍历demo，以备查阅。">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-06-05T02:57:30.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Javascript递归遍历树">
@@ -30,7 +27,7 @@
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
 
-    <link rel="alternate" href="/atom.xml" title="Alex wang | 王占永" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="前端记事 | Alex Wang" type="application/atom+xml">
 
 
 
@@ -39,8 +36,6 @@
 
 
 
-
-    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
 
 
 
@@ -52,15 +47,15 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Javascript递归遍历树 | Alex wang | 王占永</title>
+<title>Javascript递归遍历树 | 前端记事 | Alex Wang</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
 
 <script>
     var yiliaConfig = {
-        fancybox: true,
-        animate: undefined,
+        fancybox: false,
+        animate: false,
         isHome: false,
         isPost: true,
         isArchive: false,
@@ -95,11 +90,11 @@
             <img src="/img/client.jpg" class="animated zoomIn">
         </a>
         <hgroup>
-          <h1 class="header-author"><a href="/">王占永</a></h1>
+          <h1 class="header-author"><a href="/">前端记事</a></h1>
         </hgroup>
 
         
-        <p class="header-subtitle">前端开发</p>
+        <p class="header-subtitle">Alex Wang</p>
         
 
         
@@ -173,7 +168,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Canvas/">Canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/H5/">H5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/">Javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Other/">Other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Canvas/">Canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/H5/">H5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP/">HTTP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/">Javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Other/">Other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Webpack/">Webpack</a></li></ul>
                     </div>
                 </section>
                 
@@ -208,7 +203,7 @@
       <nav id="mobile-nav">
       <div class="overlay">
           <div class="slider-trigger"></div>
-          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">王占永</a></h1>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">前端记事</a></h1>
       </div>
     <div class="intrude-less">
         <header id="header" class="inner">
@@ -216,10 +211,10 @@
                 <img src="/img/client.jpg" class="animated zoomIn">
             </a>
             <hgroup>
-              <h1 class="header-author"><a href="/" title="回到主页">王占永</a></h1>
+              <h1 class="header-author"><a href="/" title="回到主页">前端记事</a></h1>
             </hgroup>
             
-            <p class="header-subtitle">前端开发</p>
+            <p class="header-subtitle">Alex Wang</p>
             
             <nav class="header-menu">
                 <ul>
@@ -246,17 +241,7 @@
 </nav>
       <div class="body-wrap"><article id="post-Javascript递归遍历树" class="article article-type-post" itemscope itemprop="blogPost">
   
-    <div class="article-meta">
-      <a href="/2017/06/05/Javascript递归遍历树/" class="article-date">
-      <time datetime="2017-06-05T02:55:14.000Z" itemprop="datePublished">2017-06-05</time>
-</a>
-
-
-    </div>
-  
   <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
     
     
       <header class="article-header">
@@ -267,6 +252,15 @@
     </h1>
   
 
+        
+          <div class="article-meta">
+            <a href="/2017/06/05/Javascript递归遍历树/" class="article-date">
+      <time datetime="2017-06-05T02:55:14.000Z" itemprop="datePublished">2017-06-05</time>
+</a>
+
+
+          </div>
+        
       </header>
       
       <div class="article-info article-info-post">
@@ -288,8 +282,8 @@
 <p>递归有三个基本的概念：入栈、出栈、出口。这三个概念说简单也简单，说复杂也复杂，关键在于对函数的理解，这里不展开讨论该内容。</p>
 <p>由于，经常需要在前端遍历菜单等树形结构，又不想每次翻以前的夹杂着业务逻辑的代码，这里干脆做一个原始的深度优先遍历demo，以备查阅。</p>
 <a id="more"></a>
-<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">"ul"</span>&gt;</span><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> menu = &#123;</div><div class="line">  <span class="attr">text</span>: <span class="string">'root'</span>,</div><div class="line">  <span class="attr">childMenu</span>: [&#123;</div><div class="line">    <span class="attr">text</span>: <span class="string">'menu 1'</span>,</div><div class="line">    <span class="attr">childMenu</span>: [&#123;</div><div class="line">      <span class="attr">text</span>: <span class="string">'child menu 1'</span>,</div><div class="line">      <span class="attr">childMenu</span>: <span class="literal">null</span></div><div class="line">    &#125;, &#123;</div><div class="line">      <span class="attr">text</span>: <span class="string">'child menu 2'</span>,</div><div class="line">      <span class="attr">childMenu</span>: <span class="literal">null</span></div><div class="line">    &#125;]</div><div class="line">  &#125;, &#123;</div><div class="line">    <span class="attr">text</span>: <span class="string">'menu 2'</span>,</div><div class="line">    <span class="attr">childMenu</span>: <span class="literal">null</span></div><div class="line">  &#125;, &#123;</div><div class="line">    <span class="attr">text</span>: <span class="string">'menu 3'</span>,</div><div class="line">    <span class="attr">childMenu</span>: <span class="literal">null</span></div><div class="line">  &#125;]</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> str = <span class="string">''</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">recursion</span>(<span class="params">data</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> child = data.childMenu;</div><div class="line">  <span class="comment">// 出口</span></div><div class="line">  <span class="keyword">if</span> (child == <span class="literal">null</span>) &#123;</div><div class="line">    str += <span class="string">'&lt;li&gt;'</span> + data.text + <span class="string">'&lt;/li&gt;'</span></div><div class="line">    <span class="keyword">return</span>;</div><div class="line">  &#125;</div><div class="line">  <span class="comment">// 进入子级</span></div><div class="line">  <span class="keyword">if</span> (child.length) &#123;</div><div class="line">    <span class="comment">// 入栈前，拼接前置标签</span></div><div class="line">    str += <span class="string">'&lt;li&gt;&lt;span&gt;'</span> + data.text + <span class="string">'&lt;/span&gt;&lt;ul&gt;'</span></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; child.length; i++) &#123;</div><div class="line">      recursion(child[i])</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 出栈后，拼接后置标签</span></div><div class="line">    str += <span class="string">'&lt;/ul&gt;&lt;/li&gt;'</span></div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">return</span> str;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">ul.innerHTML = recursion(menu)</div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">"ul"</span>&gt;</span><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> menu = &#123;</span><br><span class="line">  text: <span class="string">'root'</span>,</span><br><span class="line">  childMenu: [&#123;</span><br><span class="line">    text: <span class="string">'menu 1'</span>,</span><br><span class="line">    childMenu: [&#123;</span><br><span class="line">      text: <span class="string">'child menu 1'</span>,</span><br><span class="line">      childMenu: <span class="literal">null</span></span><br><span class="line">    &#125;, &#123;</span><br><span class="line">      text: <span class="string">'child menu 2'</span>,</span><br><span class="line">      childMenu: <span class="literal">null</span></span><br><span class="line">    &#125;]</span><br><span class="line">  &#125;, &#123;</span><br><span class="line">    text: <span class="string">'menu 2'</span>,</span><br><span class="line">    childMenu: <span class="literal">null</span></span><br><span class="line">  &#125;, &#123;</span><br><span class="line">    text: <span class="string">'menu 3'</span>,</span><br><span class="line">    childMenu: <span class="literal">null</span></span><br><span class="line">  &#125;]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">''</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">recursion</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> child = data.childMenu;</span><br><span class="line">  <span class="comment">// 出口</span></span><br><span class="line">  <span class="keyword">if</span> (child == <span class="literal">null</span>) &#123;</span><br><span class="line">    str += <span class="string">'&lt;li&gt;'</span> + data.text + <span class="string">'&lt;/li&gt;'</span></span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 进入子级</span></span><br><span class="line">  <span class="keyword">if</span> (child.length) &#123;</span><br><span class="line">    <span class="comment">// 入栈前，拼接前置标签</span></span><br><span class="line">    str += <span class="string">'&lt;li&gt;&lt;span&gt;'</span> + data.text + <span class="string">'&lt;/span&gt;&lt;ul&gt;'</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; child.length; i++) &#123;</span><br><span class="line">      recursion(child[i])</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 出栈后，拼接后置标签</span></span><br><span class="line">    str += <span class="string">'&lt;/ul&gt;&lt;/li&gt;'</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> str;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ul.innerHTML = recursion(menu)</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -299,6 +293,12 @@
 
 
     <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2018/06/26/浏览器缓存/">
+                    浏览器缓存协商
+                </a>
+            </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
@@ -312,29 +312,6 @@
   
 </article>
 
-    <div id="toc" class="toc-article">
-        <strong class="toc-title">文章目录</strong>
-        
-            
-        
-    </div>
-    <style>
-        .left-col .switch-btn,
-        .left-col .switch-area {
-            display: none;
-        }
-        .toc-level-3 i,
-        .toc-level-3 ol {
-            display: none !important;
-        }
-    </style>
-
-    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
-
-    <script>
-        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"true"];
-    </script>
-
 
 
 
@@ -346,7 +323,9 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2018/06/26/浏览器缓存/" title="上一篇: 浏览器缓存协商">
+                <i class="fa fa-angle-left"></i>
+            </a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
@@ -358,7 +337,7 @@
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/06/05/Javascript递归遍历树/">Javascript递归遍历树</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/23/前端单元测试/">前端单元测试</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/20/Curl调试restful接口/">Curl调试restful接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/13/Canvas图像处理/">Canvas图像处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/13/H5图片上传本地预览/">H5图片上传本地预览</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/13/Canvas图片下载/">Canvas图片下载</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/12/Mac下brew安装Nginx及使用/">Mac下brew安装Nginx及使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/12/Canvas基础图形与动画/">Canvas基础图形与动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/06/常用git命令/">常用git命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/06/Canvas最佳实践（性能篇）/">Canvas最佳实践（性能篇）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/28/Web中的坐标系/">Web中的坐标系</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/09/React中的“虫洞”——Context/">React中的“虫洞”——Context</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/08/React Element、Component和ReactClass的概念/">React Element、Component和ReactClass的概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/07/React组件生命周期/">React组件生命周期</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/07/11/按位非/">按位非、右移</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/11/eventPassiveMode/">事件监听选项的passive属性</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/11/对象复制/">关于JS结构化克隆算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/11/Vue-cli项目css背景图路径问题/">Vue-cli项目css背景图路径问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/11/localStorage存储/">localStorage存储容量</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/10/SSE/">服务端发送事件(SSE)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/10/longPolling/">长轮询</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/01/ReactiveData/">响应式数据</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/26/Chrome调试远程设备白屏解决办法/">Chrome调试远程设备白屏解决办法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/26/WhyOPTIONS/">浏览器发送OPTIONS请求</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/26/ChromeDevtoolTiming/">Chrome Devtool 网络请求timing</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/26/Webpack异步ChunkName/">Webpack异步ChunkName</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/26/Nginx正则/">Nginx server location正则</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/26/filters/">Chrome Network filters</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/26/浏览器缓存/">浏览器缓存协商</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/05/Javascript递归遍历树/">Javascript递归遍历树</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/23/前端单元测试/">前端单元测试</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/20/Curl调试restful接口/">Curl调试restful接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/13/Canvas图像处理/">Canvas图像处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/13/H5图片上传本地预览/">H5图片上传本地预览</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/13/Canvas图片下载/">Canvas图片下载</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/12/Mac下brew安装Nginx及使用/">Mac下brew安装Nginx及使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/12/Canvas基础图形与动画/">Canvas基础图形与动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/06/常用git命令/">常用git命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/06/Canvas最佳实践（性能篇）/">Canvas最佳实践（性能篇）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/28/Web中的坐标系/">Web中的坐标系</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/09/React中的“虫洞”——Context/">React中的“虫洞”——Context</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/08/React Element、Component和ReactClass的概念/">React Element、Component和ReactClass的概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/07/React组件生命周期/">React组件生命周期</a></li></ul>
 
 
 
@@ -372,7 +351,7 @@
         <div id="footer-info">
             <div class="footer-left">
                 <i class="fa fa-copyright"></i> 
-                2017 王占永
+                2017-2018 前端记事
             </div>
             <div class="footer-right">
                 <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  

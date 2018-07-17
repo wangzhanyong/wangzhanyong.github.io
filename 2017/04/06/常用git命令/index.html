@@ -2,16 +2,12 @@
 <html lang="zh-Hans">
 <head>
 
-    <!--[if lt IE 9]>
-        <style>body {display: none; background: none !important} </style>
-        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
-    <![endif]-->
-
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="format-detection" content="telephone=no" />
-<meta name="author" content="王占永" />
+<meta name="author" content="前端记事" />
+<!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" /> -->
 
 
 
@@ -19,20 +15,21 @@
 <meta name="keywords" content="Git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="常用git命令">
-<meta property="og:url" content="http://wangzhanyong.com/2017/04/06/常用git命令/index.html">
-<meta property="og:site_name" content="Alex wang | 王占永">
+<meta property="og:url" content="wangzhanyong.com/2017/04/06/常用git命令/index.html">
+<meta property="og:site_name" content="前端记事 | Alex Wang">
 <meta property="og:description" content="我每天使用 Git ，但是很多命令记不住。 一般来说，日常使用只要记住下图6个命令，就可以了。但是熟练使用，恐怕要记住60～100个命令。">
-<meta property="og:image" content="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015120901.png">
-<meta property="og:updated_time" content="2017-04-06T05:14:21.000Z">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://www.ruanyifeng.com/blogimg/asset/2015/bg2015120901.png">
+<meta property="og:updated_time" content="2018-07-17T05:04:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="常用git命令">
 <meta name="twitter:description" content="我每天使用 Git ，但是很多命令记不住。 一般来说，日常使用只要记住下图6个命令，就可以了。但是熟练使用，恐怕要记住60～100个命令。">
-<meta name="twitter:image" content="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015120901.png">
+<meta name="twitter:image" content="https://www.ruanyifeng.com/blogimg/asset/2015/bg2015120901.png">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
 
-    <link rel="alternate" href="/atom.xml" title="Alex wang | 王占永" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="前端记事 | Alex Wang" type="application/atom+xml">
 
 
 
@@ -41,8 +38,6 @@
 
 
 
-
-    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
 
 
 
@@ -54,15 +49,15 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>常用git命令 | Alex wang | 王占永</title>
+<title>常用git命令 | 前端记事 | Alex Wang</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
 
 <script>
     var yiliaConfig = {
-        fancybox: true,
-        animate: undefined,
+        fancybox: false,
+        animate: false,
         isHome: false,
         isPost: true,
         isArchive: false,
@@ -97,11 +92,11 @@
             <img src="/img/client.jpg" class="animated zoomIn">
         </a>
         <hgroup>
-          <h1 class="header-author"><a href="/">王占永</a></h1>
+          <h1 class="header-author"><a href="/">前端记事</a></h1>
         </hgroup>
 
         
-        <p class="header-subtitle">前端开发</p>
+        <p class="header-subtitle">Alex Wang</p>
         
 
         
@@ -175,7 +170,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Canvas/">Canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/H5/">H5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/">Javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Other/">Other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Canvas/">Canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/H5/">H5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP/">HTTP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/">Javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Other/">Other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Webpack/">Webpack</a></li></ul>
                     </div>
                 </section>
                 
@@ -210,7 +205,7 @@
       <nav id="mobile-nav">
       <div class="overlay">
           <div class="slider-trigger"></div>
-          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">王占永</a></h1>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">前端记事</a></h1>
       </div>
     <div class="intrude-less">
         <header id="header" class="inner">
@@ -218,10 +213,10 @@
                 <img src="/img/client.jpg" class="animated zoomIn">
             </a>
             <hgroup>
-              <h1 class="header-author"><a href="/" title="回到主页">王占永</a></h1>
+              <h1 class="header-author"><a href="/" title="回到主页">前端记事</a></h1>
             </hgroup>
             
-            <p class="header-subtitle">前端开发</p>
+            <p class="header-subtitle">Alex Wang</p>
             
             <nav class="header-menu">
                 <ul>
@@ -248,17 +243,7 @@
 </nav>
       <div class="body-wrap"><article id="post-常用git命令" class="article article-type-post" itemscope itemprop="blogPost">
   
-    <div class="article-meta">
-      <a href="/2017/04/06/常用git命令/" class="article-date">
-      <time datetime="2017-04-06T05:04:43.000Z" itemprop="datePublished">2017-04-06</time>
-</a>
-
-
-    </div>
-  
   <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
     
     
       <header class="article-header">
@@ -269,6 +254,15 @@
     </h1>
   
 
+        
+          <div class="article-meta">
+            <a href="/2017/04/06/常用git命令/" class="article-date">
+      <time datetime="2017-04-06T05:04:43.000Z" itemprop="datePublished">2017-04-06</time>
+</a>
+
+
+          </div>
+        
       </header>
       
       <div class="article-info article-info-post">
@@ -288,7 +282,7 @@
           
         <p>我每天使用 Git ，但是很多命令记不住。</p>
 <p>一般来说，日常使用只要记住下图6个命令，就可以了。但是熟练使用，恐怕要记住60～100个命令。</p>
-<p><img src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015120901.png" alt=""></p>
+<p><img src="https://www.ruanyifeng.com/blogimg/asset/2015/bg2015120901.png" alt=""></p>
 <a id="more"></a>
 <p>下面是我整理的常用 Git 命令清单。几个专用名词的译名如下。</p>
 <blockquote>
@@ -463,7 +457,7 @@ $ git stash pop
 $ git archive
 </code></pre></blockquote>
 <p>（完）</p>
-<p><a href="http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html" target="_blank" rel="external">原文链接</a></p>
+<p><a href="http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html">原文链接</a></p>
 
       
     </div>
@@ -493,29 +487,6 @@ $ git archive
   
 </article>
 
-    <div id="toc" class="toc-article">
-        <strong class="toc-title">文章目录</strong>
-        
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、新建代码库"><span class="toc-number">1.</span> <span class="toc-text">一、新建代码库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、配置"><span class="toc-number">2.</span> <span class="toc-text">二、配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、增加-删除文件"><span class="toc-number">3.</span> <span class="toc-text">三、增加/删除文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、代码提交"><span class="toc-number">4.</span> <span class="toc-text">四、代码提交</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、分支"><span class="toc-number">5.</span> <span class="toc-text">五、分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、标签"><span class="toc-number">6.</span> <span class="toc-text">六、标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#七、查看信息"><span class="toc-number">7.</span> <span class="toc-text">七、查看信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#八、远程同步"><span class="toc-number">8.</span> <span class="toc-text">八、远程同步</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#九、撤销"><span class="toc-number">9.</span> <span class="toc-text">九、撤销</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#十、其他"><span class="toc-number">10.</span> <span class="toc-text">十、其他</span></a></li></ol>
-        
-    </div>
-    <style>
-        .left-col .switch-btn,
-        .left-col .switch-area {
-            display: none;
-        }
-        .toc-level-3 i,
-        .toc-level-3 ol {
-            display: none !important;
-        }
-    </style>
-
-    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
-
-    <script>
-        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"true"];
-    </script>
-
 
 
 
@@ -541,7 +512,7 @@ $ git archive
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/06/05/Javascript递归遍历树/">Javascript递归遍历树</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/23/前端单元测试/">前端单元测试</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/20/Curl调试restful接口/">Curl调试restful接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/13/Canvas图像处理/">Canvas图像处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/13/H5图片上传本地预览/">H5图片上传本地预览</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/13/Canvas图片下载/">Canvas图片下载</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/12/Mac下brew安装Nginx及使用/">Mac下brew安装Nginx及使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/12/Canvas基础图形与动画/">Canvas基础图形与动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/06/常用git命令/">常用git命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/06/Canvas最佳实践（性能篇）/">Canvas最佳实践（性能篇）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/28/Web中的坐标系/">Web中的坐标系</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/09/React中的“虫洞”——Context/">React中的“虫洞”——Context</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/08/React Element、Component和ReactClass的概念/">React Element、Component和ReactClass的概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/07/React组件生命周期/">React组件生命周期</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/07/11/按位非/">按位非、右移</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/11/eventPassiveMode/">事件监听选项的passive属性</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/11/对象复制/">关于JS结构化克隆算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/11/Vue-cli项目css背景图路径问题/">Vue-cli项目css背景图路径问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/11/localStorage存储/">localStorage存储容量</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/10/SSE/">服务端发送事件(SSE)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/10/longPolling/">长轮询</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/01/ReactiveData/">响应式数据</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/26/Chrome调试远程设备白屏解决办法/">Chrome调试远程设备白屏解决办法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/26/WhyOPTIONS/">浏览器发送OPTIONS请求</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/26/ChromeDevtoolTiming/">Chrome Devtool 网络请求timing</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/26/Webpack异步ChunkName/">Webpack异步ChunkName</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/26/Nginx正则/">Nginx server location正则</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/26/filters/">Chrome Network filters</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/26/浏览器缓存/">浏览器缓存协商</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/05/Javascript递归遍历树/">Javascript递归遍历树</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/23/前端单元测试/">前端单元测试</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/20/Curl调试restful接口/">Curl调试restful接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/13/Canvas图像处理/">Canvas图像处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/13/H5图片上传本地预览/">H5图片上传本地预览</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/13/Canvas图片下载/">Canvas图片下载</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/12/Mac下brew安装Nginx及使用/">Mac下brew安装Nginx及使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/12/Canvas基础图形与动画/">Canvas基础图形与动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/06/常用git命令/">常用git命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/06/Canvas最佳实践（性能篇）/">Canvas最佳实践（性能篇）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/28/Web中的坐标系/">Web中的坐标系</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/09/React中的“虫洞”——Context/">React中的“虫洞”——Context</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/08/React Element、Component和ReactClass的概念/">React Element、Component和ReactClass的概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/07/React组件生命周期/">React组件生命周期</a></li></ul>
 
 
 
@@ -555,7 +526,7 @@ $ git archive
         <div id="footer-info">
             <div class="footer-left">
                 <i class="fa fa-copyright"></i> 
-                2017 王占永
+                2017-2018 前端记事
             </div>
             <div class="footer-right">
                 <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  

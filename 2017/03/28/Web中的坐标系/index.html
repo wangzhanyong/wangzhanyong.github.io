@@ -2,16 +2,12 @@
 <html lang="zh-Hans">
 <head>
 
-    <!--[if lt IE 9]>
-        <style>body {display: none; background: none !important} </style>
-        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
-    <![endif]-->
-
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="format-detection" content="telephone=no" />
-<meta name="author" content="王占永" />
+<meta name="author" content="前端记事" />
+<!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" /> -->
 
 
 
@@ -19,22 +15,23 @@
 <meta name="keywords" content="CSS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Web中的坐标系">
-<meta property="og:url" content="http://wangzhanyong.com/2017/03/28/Web中的坐标系/index.html">
-<meta property="og:site_name" content="Alex wang | 王占永">
+<meta property="og:url" content="wangzhanyong.com/2017/03/28/Web中的坐标系/index.html">
+<meta property="og:site_name" content="前端记事 | Alex Wang">
 <meta property="og:description" content="最近在看大漠的Canvas相关文章，看到关于Web坐标系相关介绍，深有体会。弄清楚了Web中的坐标，对CSS相关定位方面的理解，就会清晰很多。 笛卡坐标系在数学里，我们学过一种坐标系统，叫作笛卡坐标系（Cartesian Coordinate system），这个坐标系统也称为直角坐标系，是一种正交坐标系。">
-<meta property="og:image" content="http://wangzhanyong.com/images/cords/Cartesian-coordinate-system-with-circle.svg.png">
-<meta property="og:image" content="http://wangzhanyong.com/images/cords/Cartesiancoordinatesystem.png">
-<meta property="og:image" content="http://wangzhanyong.com/images/cords/web.png">
-<meta property="og:updated_time" content="2017-03-28T02:08:47.000Z">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="/images/cords/Cartesian-coordinate-system-with-circle.svg.png">
+<meta property="og:image" content="/images/cords/Cartesiancoordinatesystem.png">
+<meta property="og:image" content="/images/cords/web.png">
+<meta property="og:updated_time" content="2018-07-17T05:03:38.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Web中的坐标系">
 <meta name="twitter:description" content="最近在看大漠的Canvas相关文章，看到关于Web坐标系相关介绍，深有体会。弄清楚了Web中的坐标，对CSS相关定位方面的理解，就会清晰很多。 笛卡坐标系在数学里，我们学过一种坐标系统，叫作笛卡坐标系（Cartesian Coordinate system），这个坐标系统也称为直角坐标系，是一种正交坐标系。">
-<meta name="twitter:image" content="http://wangzhanyong.com/images/cords/Cartesian-coordinate-system-with-circle.svg.png">
+<meta name="twitter:image" content="/images/cords/Cartesian-coordinate-system-with-circle.svg.png">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
 
-    <link rel="alternate" href="/atom.xml" title="Alex wang | 王占永" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="前端记事 | Alex Wang" type="application/atom+xml">
 
 
 
@@ -43,8 +40,6 @@
 
 
 
-
-    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
 
 
 
@@ -56,15 +51,15 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Web中的坐标系 | Alex wang | 王占永</title>
+<title>Web中的坐标系 | 前端记事 | Alex Wang</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
 
 <script>
     var yiliaConfig = {
-        fancybox: true,
-        animate: undefined,
+        fancybox: false,
+        animate: false,
         isHome: false,
         isPost: true,
         isArchive: false,
@@ -99,11 +94,11 @@
             <img src="/img/client.jpg" class="animated zoomIn">
         </a>
         <hgroup>
-          <h1 class="header-author"><a href="/">王占永</a></h1>
+          <h1 class="header-author"><a href="/">前端记事</a></h1>
         </hgroup>
 
         
-        <p class="header-subtitle">前端开发</p>
+        <p class="header-subtitle">Alex Wang</p>
         
 
         
@@ -177,7 +172,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Canvas/">Canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/H5/">H5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/">Javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Other/">Other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Canvas/">Canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/H5/">H5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP/">HTTP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/">Javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Other/">Other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Webpack/">Webpack</a></li></ul>
                     </div>
                 </section>
                 
@@ -212,7 +207,7 @@
       <nav id="mobile-nav">
       <div class="overlay">
           <div class="slider-trigger"></div>
-          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">王占永</a></h1>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">前端记事</a></h1>
       </div>
     <div class="intrude-less">
         <header id="header" class="inner">
@@ -220,10 +215,10 @@
                 <img src="/img/client.jpg" class="animated zoomIn">
             </a>
             <hgroup>
-              <h1 class="header-author"><a href="/" title="回到主页">王占永</a></h1>
+              <h1 class="header-author"><a href="/" title="回到主页">前端记事</a></h1>
             </hgroup>
             
-            <p class="header-subtitle">前端开发</p>
+            <p class="header-subtitle">Alex Wang</p>
             
             <nav class="header-menu">
                 <ul>
@@ -250,17 +245,7 @@
 </nav>
       <div class="body-wrap"><article id="post-Web中的坐标系" class="article article-type-post" itemscope itemprop="blogPost">
   
-    <div class="article-meta">
-      <a href="/2017/03/28/Web中的坐标系/" class="article-date">
-      <time datetime="2017-03-28T01:42:41.000Z" itemprop="datePublished">2017-03-28</time>
-</a>
-
-
-    </div>
-  
   <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
     
     
       <header class="article-header">
@@ -271,6 +256,15 @@
     </h1>
   
 
+        
+          <div class="article-meta">
+            <a href="/2017/03/28/Web中的坐标系/" class="article-date">
+      <time datetime="2017-03-28T01:42:41.000Z" itemprop="datePublished">2017-03-28</time>
+</a>
+
+
+          </div>
+        
       </header>
       
       <div class="article-info article-info-post">
@@ -288,20 +282,20 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>最近在看<a href="http://www.w3cplus.com" target="_blank" rel="external">大漠</a>的Canvas相关文章，看到关于Web坐标系相关介绍，深有体会。弄清楚了Web中的坐标，对CSS相关定位方面的理解，就会清晰很多。</p>
+        <p>最近在看<a href="http://www.w3cplus.com">大漠</a>的Canvas相关文章，看到关于Web坐标系相关介绍，深有体会。弄清楚了Web中的坐标，对CSS相关定位方面的理解，就会清晰很多。</p>
 <h2 id="笛卡坐标系"><a href="#笛卡坐标系" class="headerlink" title="笛卡坐标系"></a>笛卡坐标系</h2><p>在数学里，我们学过一种坐标系统，叫作笛卡坐标系（Cartesian Coordinate system），这个坐标系统也称为<strong>直角坐标系</strong>，是一种正交坐标系。</p>
-<p><img src="http://wangzhanyong.com/images/cords/Cartesian-coordinate-system-with-circle.svg.png" alt=""></p>
+<p><img src="/images/cords/Cartesian-coordinate-system-with-circle.svg.png" alt=""></p>
 <a id="more"></a>
 <p>二维的直角坐标系是由两条相互垂直、0点重合的数轴构成的。在平面内，任何一点的坐标是根据数轴上对应的点的坐标设定的。在平面内，任何一点与坐标的对应关系，类似于数轴上点与坐标的对应关系。</p>
 <p>可能你对笛卡坐标系有了一定的了解，咱们在此基础上来看一个简单的示例，比如下图：</p>
-<p><img src="http://wangzhanyong.com/images/cords/Cartesiancoordinatesystem.png" alt=""></p>
+<p><img src="/images/cords/Cartesiancoordinatesystem.png" alt=""></p>
 <p>你可以看到，每个点都有一双与之关联的值。这些被称为坐标点，通常表示为(x,y)。x位于水平轴上，y位于垂直轴上。其中(0,0)点是坐标原点。x轴从原点向右方向为正值，反之为负值，y轴从原点向上为正值，反之为负值。</p>
 <p>正如上图所示，(2,3)表示x = 2，y=3。我们从坐标原点，沿x轴向右2格位置处画一条与y轴平行的线；另外沿y轴向上3格位置处画一条与x轴平行的线。这两条线交汇处就是(2, 3)的坐标点。</p>
 <h2 id="Web中的坐标系统"><a href="#Web中的坐标系统" class="headerlink" title="Web中的坐标系统"></a>Web中的坐标系统</h2><p>但在Web页面中，或者说我们的浏览器中也有一个坐标系统。只是他和我们数学中的坐标系统不一样。Web的坐标系统的原点是在屏幕（浏览器屏幕）的左上角。如下图所示：</p>
-<p><img src="http://wangzhanyong.com/images/cords/web.png" alt=""></p>
+<p><img src="/images/cords/web.png" alt=""></p>
 <p>同样的它有两个坐标轴，x轴（水平轴）和y轴（垂直轴）。两轴的交汇点（左上角）为坐标原点(0,0)。原点沿x轴向右是正值，原点沿y轴向下是正值。</p>
 <p>当然这也不是说所有情况都是不可以见的。如果一个容器div里的另一个元素做x和y负值的移动，容器div如未做overflow:hidden处理，他在屏幕中是可见的。</p>
-<p><a href="https://www.w3cplus.com/canvas/canvas-coordinate-system.html" target="_blank" rel="external">原文链接</a></p>
+<p><a href="https://www.w3cplus.com/canvas/canvas-coordinate-system.html">原文链接</a></p>
 
       
     </div>
@@ -331,29 +325,6 @@
   
 </article>
 
-    <div id="toc" class="toc-article">
-        <strong class="toc-title">文章目录</strong>
-        
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#笛卡坐标系"><span class="toc-number">1.</span> <span class="toc-text">笛卡坐标系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Web中的坐标系统"><span class="toc-number">2.</span> <span class="toc-text">Web中的坐标系统</span></a></li></ol>
-        
-    </div>
-    <style>
-        .left-col .switch-btn,
-        .left-col .switch-area {
-            display: none;
-        }
-        .toc-level-3 i,
-        .toc-level-3 ol {
-            display: none !important;
-        }
-    </style>
-
-    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
-
-    <script>
-        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"true"];
-    </script>
-
 
 
 
@@ -379,7 +350,7 @@
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/06/05/Javascript递归遍历树/">Javascript递归遍历树</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/23/前端单元测试/">前端单元测试</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/20/Curl调试restful接口/">Curl调试restful接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/13/Canvas图像处理/">Canvas图像处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/13/H5图片上传本地预览/">H5图片上传本地预览</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/13/Canvas图片下载/">Canvas图片下载</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/12/Mac下brew安装Nginx及使用/">Mac下brew安装Nginx及使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/12/Canvas基础图形与动画/">Canvas基础图形与动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/06/常用git命令/">常用git命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/06/Canvas最佳实践（性能篇）/">Canvas最佳实践（性能篇）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/28/Web中的坐标系/">Web中的坐标系</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/09/React中的“虫洞”——Context/">React中的“虫洞”——Context</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/08/React Element、Component和ReactClass的概念/">React Element、Component和ReactClass的概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/07/React组件生命周期/">React组件生命周期</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/07/11/按位非/">按位非、右移</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/11/eventPassiveMode/">事件监听选项的passive属性</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/11/对象复制/">关于JS结构化克隆算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/11/Vue-cli项目css背景图路径问题/">Vue-cli项目css背景图路径问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/11/localStorage存储/">localStorage存储容量</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/10/SSE/">服务端发送事件(SSE)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/10/longPolling/">长轮询</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/01/ReactiveData/">响应式数据</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/26/Chrome调试远程设备白屏解决办法/">Chrome调试远程设备白屏解决办法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/26/WhyOPTIONS/">浏览器发送OPTIONS请求</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/26/ChromeDevtoolTiming/">Chrome Devtool 网络请求timing</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/26/Webpack异步ChunkName/">Webpack异步ChunkName</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/26/Nginx正则/">Nginx server location正则</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/26/filters/">Chrome Network filters</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/26/浏览器缓存/">浏览器缓存协商</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/05/Javascript递归遍历树/">Javascript递归遍历树</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/23/前端单元测试/">前端单元测试</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/20/Curl调试restful接口/">Curl调试restful接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/13/Canvas图像处理/">Canvas图像处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/13/H5图片上传本地预览/">H5图片上传本地预览</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/13/Canvas图片下载/">Canvas图片下载</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/12/Mac下brew安装Nginx及使用/">Mac下brew安装Nginx及使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/12/Canvas基础图形与动画/">Canvas基础图形与动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/06/常用git命令/">常用git命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/06/Canvas最佳实践（性能篇）/">Canvas最佳实践（性能篇）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/28/Web中的坐标系/">Web中的坐标系</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/09/React中的“虫洞”——Context/">React中的“虫洞”——Context</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/08/React Element、Component和ReactClass的概念/">React Element、Component和ReactClass的概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/07/React组件生命周期/">React组件生命周期</a></li></ul>
 
 
 
@@ -393,7 +364,7 @@
         <div id="footer-info">
             <div class="footer-left">
                 <i class="fa fa-copyright"></i> 
-                2017 王占永
+                2017-2018 前端记事
             </div>
             <div class="footer-right">
                 <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  

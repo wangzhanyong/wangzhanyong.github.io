@@ -2,16 +2,12 @@
 <html lang="zh-Hans">
 <head>
 
-    <!--[if lt IE 9]>
-        <style>body {display: none; background: none !important} </style>
-        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
-    <![endif]-->
-
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="format-detection" content="telephone=no" />
-<meta name="author" content="王占永" />
+<meta name="author" content="前端记事" />
+<!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" /> -->
 
 
 
@@ -19,9 +15,10 @@
 <meta name="keywords" content="Canvas">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Canvas图像处理">
-<meta property="og:url" content="http://wangzhanyong.com/2017/04/13/Canvas图像处理/index.html">
-<meta property="og:site_name" content="Alex wang | 王占永">
+<meta property="og:url" content="wangzhanyong.com/2017/04/13/Canvas图像处理/index.html">
+<meta property="og:site_name" content="前端记事 | Alex Wang">
 <meta property="og:description" content="Canvas图像处理能力，主要是依赖ImageData 对象，该对象中存储着canvas对象真实的像素数据，它包含以下几个只读属性：width，图片宽度；height，图片高度，单位均是像素；data，Uint8ClampedArray类型的一维数组，包含着RGBA格式的整型数据，范围在0至255之间（包括255）。 最关键的就是这个data属性，它里面包含图像的初始像素数据，且是可以更改的。它是">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-04-14T00:31:06.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Canvas图像处理">
@@ -30,7 +27,7 @@
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
 
-    <link rel="alternate" href="/atom.xml" title="Alex wang | 王占永" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="前端记事 | Alex Wang" type="application/atom+xml">
 
 
 
@@ -39,8 +36,6 @@
 
 
 
-
-    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
 
 
 
@@ -52,15 +47,15 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Canvas图像处理 | Alex wang | 王占永</title>
+<title>Canvas图像处理 | 前端记事 | Alex Wang</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
 
 <script>
     var yiliaConfig = {
-        fancybox: true,
-        animate: undefined,
+        fancybox: false,
+        animate: false,
         isHome: false,
         isPost: true,
         isArchive: false,
@@ -95,11 +90,11 @@
             <img src="/img/client.jpg" class="animated zoomIn">
         </a>
         <hgroup>
-          <h1 class="header-author"><a href="/">王占永</a></h1>
+          <h1 class="header-author"><a href="/">前端记事</a></h1>
         </hgroup>
 
         
-        <p class="header-subtitle">前端开发</p>
+        <p class="header-subtitle">Alex Wang</p>
         
 
         
@@ -173,7 +168,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Canvas/">Canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/H5/">H5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/">Javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Other/">Other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Canvas/">Canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/H5/">H5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP/">HTTP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/">Javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Other/">Other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Webpack/">Webpack</a></li></ul>
                     </div>
                 </section>
                 
@@ -208,7 +203,7 @@
       <nav id="mobile-nav">
       <div class="overlay">
           <div class="slider-trigger"></div>
-          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">王占永</a></h1>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">前端记事</a></h1>
       </div>
     <div class="intrude-less">
         <header id="header" class="inner">
@@ -216,10 +211,10 @@
                 <img src="/img/client.jpg" class="animated zoomIn">
             </a>
             <hgroup>
-              <h1 class="header-author"><a href="/" title="回到主页">王占永</a></h1>
+              <h1 class="header-author"><a href="/" title="回到主页">前端记事</a></h1>
             </hgroup>
             
-            <p class="header-subtitle">前端开发</p>
+            <p class="header-subtitle">Alex Wang</p>
             
             <nav class="header-menu">
                 <ul>
@@ -246,17 +241,7 @@
 </nav>
       <div class="body-wrap"><article id="post-Canvas图像处理" class="article article-type-post" itemscope itemprop="blogPost">
   
-    <div class="article-meta">
-      <a href="/2017/04/13/Canvas图像处理/" class="article-date">
-      <time datetime="2017-04-13T13:41:09.000Z" itemprop="datePublished">2017-04-13</time>
-</a>
-
-
-    </div>
-  
   <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
     
     
       <header class="article-header">
@@ -267,6 +252,15 @@
     </h1>
   
 
+        
+          <div class="article-meta">
+            <a href="/2017/04/13/Canvas图像处理/" class="article-date">
+      <time datetime="2017-04-13T13:41:09.000Z" itemprop="datePublished">2017-04-13</time>
+</a>
+
+
+          </div>
+        
       </header>
       
       <div class="article-info article-info-post">
@@ -291,9 +285,9 @@
 </blockquote>
 <a id="more"></a>
 <p>为了易于理解，我们假设这个图像只有3个像素点。上面的数组，按照rgba的顺序，那么第一个像素点的色彩信息是rgba(255，0，0，0)，即是红色。其它两个像素，依次是绿色和蓝色。</p>
-<p>关于ImageData对象，就不再啰嗦了。详细信息请参考<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API/Tutorial/Pixel_manipulation_with_canvas" target="_blank" rel="external">ImageData</a></p>
-<h2 id="一个简单的示例"><a href="#一个简单的示例" class="headerlink" title="一个简单的示例"></a>一个简单的示例</h2><figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">"canvas"</span> <span class="attr">width</span>=<span class="string">"300"</span> <span class="attr">height</span>=<span class="string">"300"</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></div></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">'canvas'</span>)</div><div class="line"><span class="keyword">var</span> ctx = canvas.getContext(<span class="string">'2d'</span>)</div><div class="line"></div><div class="line"><span class="keyword">var</span> img = <span class="keyword">new</span> Image();</div><div class="line">img.src = <span class="string">'canvas-download.png'</span>;</div><div class="line">img.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  ctx.drawImage(img, <span class="number">0</span>, <span class="number">0</span>);</div><div class="line">  img.style.display = <span class="string">'none'</span>;</div><div class="line"></div><div class="line">  setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    fill(<span class="number">255</span>, <span class="number">100</span>, <span class="number">0</span>)</div><div class="line">  &#125;, <span class="number">2000</span>)</div><div class="line">&#125;;</div><div class="line"><span class="comment">/**</span></div><div class="line"> * 填充颜色，rgb 色彩模型</div><div class="line"> * @param  &#123;number&#125; r 红色</div><div class="line"> * @param  &#123;number&#125; g 绿色</div><div class="line"> * @param  &#123;number&#125; b 蓝色</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fill</span>(<span class="params">r, g, b</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> pixels = ctx.getImageData(<span class="number">0</span>, <span class="number">0</span>, canvas.width, canvas.height);</div><div class="line">  <span class="keyword">var</span> data = pixels.data;</div><div class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, len = data.length; i &lt; len; i += <span class="number">4</span>) &#123;</div><div class="line">    data[i] = r</div><div class="line">    data[i + <span class="number">1</span>] = g</div><div class="line">    data[i + <span class="number">2</span>] = b</div><div class="line">  &#125;</div><div class="line">  ctx.putImageData(pixels, <span class="number">0</span>, <span class="number">0</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>关于ImageData对象，就不再啰嗦了。详细信息请参考<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API/Tutorial/Pixel_manipulation_with_canvas">ImageData</a></p>
+<h2 id="一个简单的示例"><a href="#一个简单的示例" class="headerlink" title="一个简单的示例"></a>一个简单的示例</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">"canvas"</span> <span class="attr">width</span>=<span class="string">"300"</span> <span class="attr">height</span>=<span class="string">"300"</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">'canvas'</span>)</span><br><span class="line"><span class="keyword">var</span> ctx = canvas.getContext(<span class="string">'2d'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> img = <span class="keyword">new</span> Image();</span><br><span class="line">img.src = <span class="string">'canvas-download.png'</span>;</span><br><span class="line">img.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  ctx.drawImage(img, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">  img.style.display = <span class="string">'none'</span>;</span><br><span class="line"></span><br><span class="line">  setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    fill(<span class="number">255</span>, <span class="number">100</span>, <span class="number">0</span>)</span><br><span class="line">  &#125;, <span class="number">2000</span>)</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 填充颜色，rgb 色彩模型</span></span><br><span class="line"><span class="comment"> * @param  &#123;number&#125; r 红色</span></span><br><span class="line"><span class="comment"> * @param  &#123;number&#125; g 绿色</span></span><br><span class="line"><span class="comment"> * @param  &#123;number&#125; b 蓝色</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fill</span>(<span class="params">r, g, b</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> pixels = ctx.getImageData(<span class="number">0</span>, <span class="number">0</span>, canvas.width, canvas.height);</span><br><span class="line">  <span class="keyword">var</span> data = pixels.data;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, len = data.length; i &lt; len; i += <span class="number">4</span>) &#123;</span><br><span class="line">    data[i] = r</span><br><span class="line">    data[i + <span class="number">1</span>] = g</span><br><span class="line">    data[i + <span class="number">2</span>] = b</span><br><span class="line">  &#125;</span><br><span class="line">  ctx.putImageData(pixels, <span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>该示例极其简单，主要表达Canvas图像处理的原始思路。更多图像处理的算法，我也不擅长，请自行查找。</p>
 <p>注：需要在http协议下访问页面</p>
 
@@ -325,29 +319,6 @@
   
 </article>
 
-    <div id="toc" class="toc-article">
-        <strong class="toc-title">文章目录</strong>
-        
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一个简单的示例"><span class="toc-number">1.</span> <span class="toc-text">一个简单的示例</span></a></li></ol>
-        
-    </div>
-    <style>
-        .left-col .switch-btn,
-        .left-col .switch-area {
-            display: none;
-        }
-        .toc-level-3 i,
-        .toc-level-3 ol {
-            display: none !important;
-        }
-    </style>
-
-    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
-
-    <script>
-        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"true"];
-    </script>
-
 
 
 
@@ -373,7 +344,7 @@
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/06/05/Javascript递归遍历树/">Javascript递归遍历树</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/23/前端单元测试/">前端单元测试</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/20/Curl调试restful接口/">Curl调试restful接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/13/Canvas图像处理/">Canvas图像处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/13/H5图片上传本地预览/">H5图片上传本地预览</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/13/Canvas图片下载/">Canvas图片下载</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/12/Mac下brew安装Nginx及使用/">Mac下brew安装Nginx及使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/12/Canvas基础图形与动画/">Canvas基础图形与动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/06/常用git命令/">常用git命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/06/Canvas最佳实践（性能篇）/">Canvas最佳实践（性能篇）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/28/Web中的坐标系/">Web中的坐标系</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/09/React中的“虫洞”——Context/">React中的“虫洞”——Context</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/08/React Element、Component和ReactClass的概念/">React Element、Component和ReactClass的概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/07/React组件生命周期/">React组件生命周期</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/07/11/按位非/">按位非、右移</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/11/eventPassiveMode/">事件监听选项的passive属性</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/11/对象复制/">关于JS结构化克隆算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/11/Vue-cli项目css背景图路径问题/">Vue-cli项目css背景图路径问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/11/localStorage存储/">localStorage存储容量</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/10/SSE/">服务端发送事件(SSE)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/10/longPolling/">长轮询</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/01/ReactiveData/">响应式数据</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/26/Chrome调试远程设备白屏解决办法/">Chrome调试远程设备白屏解决办法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/26/WhyOPTIONS/">浏览器发送OPTIONS请求</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/26/ChromeDevtoolTiming/">Chrome Devtool 网络请求timing</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/26/Webpack异步ChunkName/">Webpack异步ChunkName</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/26/Nginx正则/">Nginx server location正则</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/26/filters/">Chrome Network filters</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/26/浏览器缓存/">浏览器缓存协商</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/05/Javascript递归遍历树/">Javascript递归遍历树</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/23/前端单元测试/">前端单元测试</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/20/Curl调试restful接口/">Curl调试restful接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/13/Canvas图像处理/">Canvas图像处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/13/H5图片上传本地预览/">H5图片上传本地预览</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/13/Canvas图片下载/">Canvas图片下载</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/12/Mac下brew安装Nginx及使用/">Mac下brew安装Nginx及使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/12/Canvas基础图形与动画/">Canvas基础图形与动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/06/常用git命令/">常用git命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/06/Canvas最佳实践（性能篇）/">Canvas最佳实践（性能篇）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/28/Web中的坐标系/">Web中的坐标系</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/09/React中的“虫洞”——Context/">React中的“虫洞”——Context</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/08/React Element、Component和ReactClass的概念/">React Element、Component和ReactClass的概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/07/React组件生命周期/">React组件生命周期</a></li></ul>
 
 
 
@@ -387,7 +358,7 @@
         <div id="footer-info">
             <div class="footer-left">
                 <i class="fa fa-copyright"></i> 
-                2017 王占永
+                2017-2018 前端记事
             </div>
             <div class="footer-right">
                 <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  

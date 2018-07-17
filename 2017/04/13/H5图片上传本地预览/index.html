@@ -2,16 +2,12 @@
 <html lang="zh-Hans">
 <head>
 
-    <!--[if lt IE 9]>
-        <style>body {display: none; background: none !important} </style>
-        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
-    <![endif]-->
-
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="format-detection" content="telephone=no" />
-<meta name="author" content="王占永" />
+<meta name="author" content="前端记事" />
+<!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" /> -->
 
 
 
@@ -19,9 +15,10 @@
 <meta name="keywords" content="H5">
 <meta property="og:type" content="article">
 <meta property="og:title" content="H5图片上传本地预览">
-<meta property="og:url" content="http://wangzhanyong.com/2017/04/13/H5图片上传本地预览/index.html">
-<meta property="og:site_name" content="Alex wang | 王占永">
+<meta property="og:url" content="wangzhanyong.com/2017/04/13/H5图片上传本地预览/index.html">
+<meta property="og:site_name" content="前端记事 | Alex Wang">
 <meta property="og:description" content="这个例子之前也曾多次写过，主要是依赖ES5提供的Blob对象。 Blob简介ECMAScript 5引入了Blob对象，允许直接操作二进制数据。Blob对象是一个代表二进制数据的基本对象，在它的基础上，又衍生出一系列相关的API，用来操作文件。  File对象：负责处理那些以文件形式存在的二进制数据，也就是操作本地文件；FileList对象：File对象的网页表单接口；FileReader对象：负">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-04-13T05:53:43.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="H5图片上传本地预览">
@@ -30,7 +27,7 @@
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
 
-    <link rel="alternate" href="/atom.xml" title="Alex wang | 王占永" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="前端记事 | Alex Wang" type="application/atom+xml">
 
 
 
@@ -39,8 +36,6 @@
 
 
 
-
-    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
 
 
 
@@ -52,15 +47,15 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>H5图片上传本地预览 | Alex wang | 王占永</title>
+<title>H5图片上传本地预览 | 前端记事 | Alex Wang</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
 
 <script>
     var yiliaConfig = {
-        fancybox: true,
-        animate: undefined,
+        fancybox: false,
+        animate: false,
         isHome: false,
         isPost: true,
         isArchive: false,
@@ -95,11 +90,11 @@
             <img src="/img/client.jpg" class="animated zoomIn">
         </a>
         <hgroup>
-          <h1 class="header-author"><a href="/">王占永</a></h1>
+          <h1 class="header-author"><a href="/">前端记事</a></h1>
         </hgroup>
 
         
-        <p class="header-subtitle">前端开发</p>
+        <p class="header-subtitle">Alex Wang</p>
         
 
         
@@ -173,7 +168,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Canvas/">Canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/H5/">H5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/">Javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Other/">Other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Canvas/">Canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/H5/">H5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP/">HTTP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/">Javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Other/">Other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Webpack/">Webpack</a></li></ul>
                     </div>
                 </section>
                 
@@ -208,7 +203,7 @@
       <nav id="mobile-nav">
       <div class="overlay">
           <div class="slider-trigger"></div>
-          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">王占永</a></h1>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">前端记事</a></h1>
       </div>
     <div class="intrude-less">
         <header id="header" class="inner">
@@ -216,10 +211,10 @@
                 <img src="/img/client.jpg" class="animated zoomIn">
             </a>
             <hgroup>
-              <h1 class="header-author"><a href="/" title="回到主页">王占永</a></h1>
+              <h1 class="header-author"><a href="/" title="回到主页">前端记事</a></h1>
             </hgroup>
             
-            <p class="header-subtitle">前端开发</p>
+            <p class="header-subtitle">Alex Wang</p>
             
             <nav class="header-menu">
                 <ul>
@@ -246,17 +241,7 @@
 </nav>
       <div class="body-wrap"><article id="post-H5图片上传本地预览" class="article article-type-post" itemscope itemprop="blogPost">
   
-    <div class="article-meta">
-      <a href="/2017/04/13/H5图片上传本地预览/" class="article-date">
-      <time datetime="2017-04-13T05:43:53.000Z" itemprop="datePublished">2017-04-13</time>
-</a>
-
-
-    </div>
-  
   <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
     
     
       <header class="article-header">
@@ -267,6 +252,15 @@
     </h1>
   
 
+        
+          <div class="article-meta">
+            <a href="/2017/04/13/H5图片上传本地预览/" class="article-date">
+      <time datetime="2017-04-13T05:43:53.000Z" itemprop="datePublished">2017-04-13</time>
+</a>
+
+
+          </div>
+        
       </header>
       
       <div class="article-info article-info-post">
@@ -290,8 +284,8 @@
 <p>File对象：负责处理那些以文件形式存在的二进制数据，也就是操作本地文件；<br>FileList对象：File对象的网页表单接口；<br>FileReader对象：负责将二进制数据读入内存内容；<br>URL对象：用于对二进制数据生成URL。</p>
 </blockquote>
 <a id="more"></a>
-<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">"form"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">name</span>=<span class="string">"upload_file"</span> <span class="attr">id</span>=<span class="string">"upload_file"</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"img_wrapper"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> upload_file = <span class="built_in">document</span>.getElementById(<span class="string">'upload_file'</span>)</div><div class="line"><span class="keyword">var</span> img_wrapper = <span class="built_in">document</span>.getElementById(<span class="string">'img_wrapper'</span>)</div><div class="line"></div><div class="line">upload_file.addEventListener(<span class="string">'change'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</div><div class="line">  <span class="comment">//获取File对象</span></div><div class="line">  <span class="keyword">var</span> file = <span class="keyword">this</span>.files[<span class="number">0</span>]</div><div class="line"></div><div class="line">  <span class="keyword">var</span> reader = <span class="keyword">new</span> FileReader()</div><div class="line">    <span class="comment">/**</span></div><div class="line">     * readAsXXXXX() 是异步方法</div><div class="line">     */</div><div class="line">  reader.onload = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> data_url = <span class="keyword">this</span>.result</div><div class="line"></div><div class="line">    <span class="keyword">var</span> img = <span class="built_in">document</span>.createElement(<span class="string">'img'</span>)</div><div class="line">    img.onload = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</div><div class="line">      img_wrapper.innerHTML = <span class="string">''</span></div><div class="line">      img_wrapper.appendChild(<span class="keyword">this</span>)</div><div class="line">    &#125;</div><div class="line">    img.src = data_url</div><div class="line"></div><div class="line">  &#125;</div><div class="line">  reader.readAsDataURL(file)</div><div class="line"></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">"form"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">name</span>=<span class="string">"upload_file"</span> <span class="attr">id</span>=<span class="string">"upload_file"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"img_wrapper"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> upload_file = <span class="built_in">document</span>.getElementById(<span class="string">'upload_file'</span>)</span><br><span class="line"><span class="keyword">var</span> img_wrapper = <span class="built_in">document</span>.getElementById(<span class="string">'img_wrapper'</span>)</span><br><span class="line"></span><br><span class="line">upload_file.addEventListener(<span class="string">'change'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="comment">//获取File对象</span></span><br><span class="line">  <span class="keyword">var</span> file = <span class="keyword">this</span>.files[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> reader = <span class="keyword">new</span> FileReader()</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * readAsXXXXX() 是异步方法</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">  reader.onload = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> data_url = <span class="keyword">this</span>.result</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> img = <span class="built_in">document</span>.createElement(<span class="string">'img'</span>)</span><br><span class="line">    img.onload = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">      img_wrapper.innerHTML = <span class="string">''</span></span><br><span class="line">      img_wrapper.appendChild(<span class="keyword">this</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    img.src = data_url</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">  reader.readAsDataURL(file)</span><br><span class="line"></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -321,29 +315,6 @@
   
 </article>
 
-    <div id="toc" class="toc-article">
-        <strong class="toc-title">文章目录</strong>
-        
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Blob简介"><span class="toc-number">1.</span> <span class="toc-text">Blob简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#示例"><span class="toc-number">2.</span> <span class="toc-text">示例</span></a></li></ol>
-        
-    </div>
-    <style>
-        .left-col .switch-btn,
-        .left-col .switch-area {
-            display: none;
-        }
-        .toc-level-3 i,
-        .toc-level-3 ol {
-            display: none !important;
-        }
-    </style>
-
-    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
-
-    <script>
-        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"true"];
-    </script>
-
 
 
 
@@ -369,7 +340,7 @@
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/06/05/Javascript递归遍历树/">Javascript递归遍历树</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/23/前端单元测试/">前端单元测试</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/20/Curl调试restful接口/">Curl调试restful接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/13/Canvas图像处理/">Canvas图像处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/13/H5图片上传本地预览/">H5图片上传本地预览</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/13/Canvas图片下载/">Canvas图片下载</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/12/Mac下brew安装Nginx及使用/">Mac下brew安装Nginx及使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/12/Canvas基础图形与动画/">Canvas基础图形与动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/06/常用git命令/">常用git命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/06/Canvas最佳实践（性能篇）/">Canvas最佳实践（性能篇）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/28/Web中的坐标系/">Web中的坐标系</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/09/React中的“虫洞”——Context/">React中的“虫洞”——Context</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/08/React Element、Component和ReactClass的概念/">React Element、Component和ReactClass的概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/07/React组件生命周期/">React组件生命周期</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/07/11/按位非/">按位非、右移</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/11/eventPassiveMode/">事件监听选项的passive属性</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/11/对象复制/">关于JS结构化克隆算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/11/Vue-cli项目css背景图路径问题/">Vue-cli项目css背景图路径问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/11/localStorage存储/">localStorage存储容量</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/10/SSE/">服务端发送事件(SSE)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/10/longPolling/">长轮询</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/01/ReactiveData/">响应式数据</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/26/Chrome调试远程设备白屏解决办法/">Chrome调试远程设备白屏解决办法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/26/WhyOPTIONS/">浏览器发送OPTIONS请求</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/26/ChromeDevtoolTiming/">Chrome Devtool 网络请求timing</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/26/Webpack异步ChunkName/">Webpack异步ChunkName</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/26/Nginx正则/">Nginx server location正则</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/26/filters/">Chrome Network filters</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/26/浏览器缓存/">浏览器缓存协商</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/05/Javascript递归遍历树/">Javascript递归遍历树</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/23/前端单元测试/">前端单元测试</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/20/Curl调试restful接口/">Curl调试restful接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/13/Canvas图像处理/">Canvas图像处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/13/H5图片上传本地预览/">H5图片上传本地预览</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/13/Canvas图片下载/">Canvas图片下载</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/12/Mac下brew安装Nginx及使用/">Mac下brew安装Nginx及使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/12/Canvas基础图形与动画/">Canvas基础图形与动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/06/常用git命令/">常用git命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/06/Canvas最佳实践（性能篇）/">Canvas最佳实践（性能篇）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/28/Web中的坐标系/">Web中的坐标系</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/09/React中的“虫洞”——Context/">React中的“虫洞”——Context</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/08/React Element、Component和ReactClass的概念/">React Element、Component和ReactClass的概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/07/React组件生命周期/">React组件生命周期</a></li></ul>
 
 
 
@@ -383,7 +354,7 @@
         <div id="footer-info">
             <div class="footer-left">
                 <i class="fa fa-copyright"></i> 
-                2017 王占永
+                2017-2018 前端记事
             </div>
             <div class="footer-right">
                 <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  

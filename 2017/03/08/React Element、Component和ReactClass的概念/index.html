@@ -2,16 +2,12 @@
 <html lang="zh-Hans">
 <head>
 
-    <!--[if lt IE 9]>
-        <style>body {display: none; background: none !important} </style>
-        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
-    <![endif]-->
-
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="format-detection" content="telephone=no" />
-<meta name="author" content="王占永" />
+<meta name="author" content="前端记事" />
+<!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" /> -->
 
 
 
@@ -19,9 +15,10 @@
 <meta name="keywords" content="React">
 <meta property="og:type" content="article">
 <meta property="og:title" content="React Element、Component和ReactClass的概念">
-<meta property="og:url" content="http://wangzhanyong.com/2017/03/08/React Element、Component和ReactClass的概念/index.html">
-<meta property="og:site_name" content="Alex wang | 王占永">
+<meta property="og:url" content="wangzhanyong.com/2017/03/08/React Element、Component和ReactClass的概念/index.html">
+<meta property="og:site_name" content="前端记事 | Alex Wang">
 <meta property="og:description" content="在使用 React 的时候，会出现几个看起来相互混淆的概念，例如：Element，Class 和 Component。 我们先来看看 Element。 ElementElement 是后文 Class 的实例，React 通过解析每一个创建的 Element， 计算出需要对 DOM 进行的实际操作来完成渲染的。">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-03-27T06:22:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React Element、Component和ReactClass的概念">
@@ -30,7 +27,7 @@
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
 
-    <link rel="alternate" href="/atom.xml" title="Alex wang | 王占永" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="前端记事 | Alex Wang" type="application/atom+xml">
 
 
 
@@ -39,8 +36,6 @@
 
 
 
-
-    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
 
 
 
@@ -52,15 +47,15 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>React Element、Component和ReactClass的概念 | Alex wang | 王占永</title>
+<title>React Element、Component和ReactClass的概念 | 前端记事 | Alex Wang</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
 
 <script>
     var yiliaConfig = {
-        fancybox: true,
-        animate: undefined,
+        fancybox: false,
+        animate: false,
         isHome: false,
         isPost: true,
         isArchive: false,
@@ -95,11 +90,11 @@
             <img src="/img/client.jpg" class="animated zoomIn">
         </a>
         <hgroup>
-          <h1 class="header-author"><a href="/">王占永</a></h1>
+          <h1 class="header-author"><a href="/">前端记事</a></h1>
         </hgroup>
 
         
-        <p class="header-subtitle">前端开发</p>
+        <p class="header-subtitle">Alex Wang</p>
         
 
         
@@ -173,7 +168,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Canvas/">Canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/H5/">H5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/">Javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Other/">Other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Canvas/">Canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/H5/">H5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP/">HTTP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/">Javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Other/">Other</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Webpack/">Webpack</a></li></ul>
                     </div>
                 </section>
                 
@@ -208,7 +203,7 @@
       <nav id="mobile-nav">
       <div class="overlay">
           <div class="slider-trigger"></div>
-          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">王占永</a></h1>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">前端记事</a></h1>
       </div>
     <div class="intrude-less">
         <header id="header" class="inner">
@@ -216,10 +211,10 @@
                 <img src="/img/client.jpg" class="animated zoomIn">
             </a>
             <hgroup>
-              <h1 class="header-author"><a href="/" title="回到主页">王占永</a></h1>
+              <h1 class="header-author"><a href="/" title="回到主页">前端记事</a></h1>
             </hgroup>
             
-            <p class="header-subtitle">前端开发</p>
+            <p class="header-subtitle">Alex Wang</p>
             
             <nav class="header-menu">
                 <ul>
@@ -246,17 +241,7 @@
 </nav>
       <div class="body-wrap"><article id="post-React Element、Component和ReactClass的概念" class="article article-type-post" itemscope itemprop="blogPost">
   
-    <div class="article-meta">
-      <a href="/2017/03/08/React Element、Component和ReactClass的概念/" class="article-date">
-      <time datetime="2017-03-08T07:56:37.000Z" itemprop="datePublished">2017-03-08</time>
-</a>
-
-
-    </div>
-  
   <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
     
     
       <header class="article-header">
@@ -267,6 +252,15 @@
     </h1>
   
 
+        
+          <div class="article-meta">
+            <a href="/2017/03/08/React Element、Component和ReactClass的概念/" class="article-date">
+      <time datetime="2017-03-08T07:56:37.000Z" itemprop="datePublished">2017-03-08</time>
+</a>
+
+
+          </div>
+        
       </header>
       
       <div class="article-info article-info-post">
@@ -288,30 +282,30 @@
 <p>我们先来看看 Element。</p>
 <h2 id="Element"><a href="#Element" class="headerlink" title="Element"></a>Element</h2><p>Element 是后文 Class 的实例，React 通过解析每一个创建的 Element， 计算出需要对 DOM 进行的实际操作来完成渲染的。</p>
 <a id="more"></a>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">React.render(</div><div class="line">    React.createElement(<span class="string">'div'</span>, &#123;&#125;, <span class="string">'Hello, world!'</span>), </div><div class="line">    <span class="built_in">document</span>.body</div><div class="line">);</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">React.render(</span><br><span class="line">    React.createElement(<span class="string">'div'</span>, &#123;&#125;, <span class="string">'Hello, world!'</span>), </span><br><span class="line">    <span class="built_in">document</span>.body</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 <p>代码中的 <code>React.createElement</code> 创建了一个新的 div Componnet 的实例。第一个参数 “div”是 React 预先定义好的。</p>
 <p>第二个参数{}是需要传入的props，第三个参数是 “Child Element”。</p>
 <p>当你创建了第一个 Element，其所有的“孩子”都会被自动创建。用 “Element” 来命名，应该是遵从了 HTML Elements 的习惯。</p>
 <h2 id="Component-和-ReactClass"><a href="#Component-和-ReactClass" class="headerlink" title="Component 和 ReactClass"></a>Component 和 ReactClass</h2><p>React 自己定义了好了大量的 Components，从 “div” 到 “svg”，包含了几乎所有 HTML Tags。当然，我们也可以创建自己的 Component，例如：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> MyComponent = React.createClass(&#123;</div><div class="line">  <span class="attr">render</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    ...</div><div class="line">  &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> MyComponent = React.createClass(&#123;</span><br><span class="line">  render: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>MyComponent 就是我们创建的 Component，至少需要包含一个 render 方法的实现。随后，我们就可以通过 <code>React.createElement(MyComponent, {}, null)</code> 来创建 “MyComponent” 的 “Element” 了。</p>
 <p>这里最容易造成混淆的是，创建 “MyComponent” 方法名是 “React.createClass”，而不是 “React.createComponent”。“createClass” 却创建出了 “Component”，这是一个诡异的地方，虽然官方文档定义 “createClass” 的返回类型为 “ReactClass”。</p>
-<p>之前有过争议 <a href="https://groups.google.com/forum/#!topic/reactjs/40dxGadNXeM" target="_blank" rel="external">https://groups.google.com/forum/#!topic/reactjs/40dxGadNXeM</a></p>
+<p>之前有过争议 <a href="https://groups.google.com/forum/#!topic/reactjs/40dxGadNXeM">https://groups.google.com/forum/#!topic/reactjs/40dxGadNXeM</a></p>
 <h2 id="Factory"><a href="#Factory" class="headerlink" title="Factory"></a>Factory</h2><p>为了简化 <code>React.createElement</code> 的调用语法，<code>React.createFactory</code> 被引入：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> div = React.createFactory(<span class="string">'div'</span>);</div><div class="line"><span class="keyword">var</span> root = div(&#123; <span class="attr">className</span>: <span class="string">'my-div'</span> &#125;);</div><div class="line">React.render(root, <span class="built_in">document</span>.getElementById(<span class="string">'example'</span>));</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> div = React.createFactory(<span class="string">'div'</span>);</span><br><span class="line"><span class="keyword">var</span> root = div(&#123; <span class="attr">className</span>: <span class="string">'my-div'</span> &#125;);</span><br><span class="line">React.render(root, <span class="built_in">document</span>.getElementById(<span class="string">'example'</span>));</span><br></pre></td></tr></table></figure>
 <p><code>React.createFactory</code> 的定义基本就是如下形式，Element 的类型被提前绑定了。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">createFactory</span>(<span class="params">type</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> React.createElement.bind(<span class="literal">null</span>, type);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createFactory</span>(<span class="params">type</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> React.createElement.bind(<span class="literal">null</span>, type);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><code>React.DOM.div</code> 等都是预先定义好的 “Factory”。“Factory” 用于创建特定 “ReactClass” 的 “Element”。</p>
-<h2 id="用-ES6-Class-代替-React-createClass"><a href="#用-ES6-Class-代替-React-createClass" class="headerlink" title="用 ES6 Class 代替 React.createClass"></a>用 ES6 Class 代替 React.createClass</h2><p>从 React 0.13 开始，可以使用 ES6 Class 代替 <code>React.createClass</code> 了。这应该是今后推荐的方法，但是目前对于 mixins 还没有提供官方的解决方案，你可以利用第三方的实现 <a href="https://github.com/brigand/react-mixin" target="_blank" rel="external">https://github.com/brigand/react-mixin</a>.</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">HelloMessage</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</div><div class="line">  render() &#123;</div><div class="line">    <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>Hello &#123;this.props.name&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="用-ES6-Class-代替-React-createClass"><a href="#用-ES6-Class-代替-React-createClass" class="headerlink" title="用 ES6 Class 代替 React.createClass"></a>用 ES6 Class 代替 React.createClass</h2><p>从 React 0.13 开始，可以使用 ES6 Class 代替 <code>React.createClass</code> 了。这应该是今后推荐的方法，但是目前对于 mixins 还没有提供官方的解决方案，你可以利用第三方的实现 <a href="https://github.com/brigand/react-mixin">https://github.com/brigand/react-mixin</a>.</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HelloMessage</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>Hello &#123;this.props.name&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><code>React.Component</code> 是基类(得，这里又变成了 Component了，其实准确的命名可能是 ElementClass，或者 ComponentClass，不过这样太长了😀)。</p>
 <p><code>React.createClass</code> 中的某些工作，可以直接在 ES6 Class 的构造函数中来完成，例如：<code>getInitialState</code> 的工作可以被构造函数所替代：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">Counter</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</div><div class="line">  <span class="keyword">constructor</span>(props) &#123;</div><div class="line">    <span class="keyword">super</span>(props);</div><div class="line">    <span class="keyword">this</span>.state = &#123;<span class="attr">count</span>: props.initialCount&#125;;</div><div class="line">  &#125;</div><div class="line">  tick() &#123;</div><div class="line">    <span class="keyword">this</span>.setState(&#123;<span class="attr">count</span>: <span class="keyword">this</span>.state.count + <span class="number">1</span>&#125;);</div><div class="line">  &#125;</div><div class="line">  render() &#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      <span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">onClick</span>=<span class="string">&#123;this.tick.bind(this)&#125;</span>&gt;</span></span></div><div class="line">        Clicks: &#123;this.state.count&#125;</div><div class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">Counter</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(props) &#123;</span><br><span class="line">    <span class="keyword">super</span>(props);</span><br><span class="line">    <span class="keyword">this</span>.state = &#123;<span class="attr">count</span>: props.initialCount&#125;;</span><br><span class="line">  &#125;</span><br><span class="line">  tick() &#123;</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123;<span class="attr">count</span>: <span class="keyword">this</span>.state.count + <span class="number">1</span>&#125;);</span><br><span class="line">  &#125;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;div onClick=&#123;<span class="keyword">this</span>.tick.bind(<span class="keyword">this</span>)&#125;&gt;</span><br><span class="line">        Clicks: &#123;<span class="keyword">this</span>.state.count&#125;</span><br><span class="line">      &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
 <p><code>propTypes</code> 和 <code>getDefaultTypes</code> 这种静态设置则可以变成类级别（不是类实例成员）的定义。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> ExampleComponent = React.createClass(&#123; ... &#125;);</div><div class="line">ExampleComponent.propTypes = &#123;</div><div class="line"> <span class="attr">aStringProp</span>: React.PropTypes.string</div><div class="line">&#125;;</div><div class="line">ExampleComponent.defaultProps = &#123;</div><div class="line"> <span class="attr">aStringProp</span>: <span class="string">''</span></div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> ExampleComponent = React.createClass(&#123; ... &#125;);</span><br><span class="line">ExampleComponent.propTypes = &#123;</span><br><span class="line"> aStringProp: React.PropTypes.string</span><br><span class="line">&#125;;</span><br><span class="line">ExampleComponent.defaultProps = &#123;</span><br><span class="line"> aStringProp: <span class="string">''</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>另外，原本通过 <code>React.createClass</code> 创建的 Component/Element 中的成员函数都是有 auto binding 能力的(缺省绑定到当前 Element)，那么使用 ES6 Class 则需要你自己绑定，或者使用 =&gt; （Fat Arrow）的声明方式。Fat Arrow 会缺省将当前 this 绑定到当前类实例，但是不要对 render 使用 =&gt;。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Counter</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</div><div class="line">  tick = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">    ...</div><div class="line">  &#125;</div><div class="line">  ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><a href="http://www.jianshu.com/p/435661bb9ede" target="_blank" rel="external">原文链接</a></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Counter</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  tick = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    ...</span><br><span class="line">  &#125;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="http://www.jianshu.com/p/435661bb9ede">原文链接</a></p>
 
       
     </div>
@@ -341,29 +335,6 @@
   
 </article>
 
-    <div id="toc" class="toc-article">
-        <strong class="toc-title">文章目录</strong>
-        
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Element"><span class="toc-number">1.</span> <span class="toc-text">Element</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Component-和-ReactClass"><span class="toc-number">2.</span> <span class="toc-text">Component 和 ReactClass</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Factory"><span class="toc-number">3.</span> <span class="toc-text">Factory</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用-ES6-Class-代替-React-createClass"><span class="toc-number">4.</span> <span class="toc-text">用 ES6 Class 代替 React.createClass</span></a></li></ol>
-        
-    </div>
-    <style>
-        .left-col .switch-btn,
-        .left-col .switch-area {
-            display: none;
-        }
-        .toc-level-3 i,
-        .toc-level-3 ol {
-            display: none !important;
-        }
-    </style>
-
-    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
-
-    <script>
-        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"true"];
-    </script>
-
 
 
 
@@ -389,7 +360,7 @@
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/06/05/Javascript递归遍历树/">Javascript递归遍历树</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/23/前端单元测试/">前端单元测试</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/20/Curl调试restful接口/">Curl调试restful接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/13/Canvas图像处理/">Canvas图像处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/13/H5图片上传本地预览/">H5图片上传本地预览</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/13/Canvas图片下载/">Canvas图片下载</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/12/Mac下brew安装Nginx及使用/">Mac下brew安装Nginx及使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/12/Canvas基础图形与动画/">Canvas基础图形与动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/06/常用git命令/">常用git命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/06/Canvas最佳实践（性能篇）/">Canvas最佳实践（性能篇）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/28/Web中的坐标系/">Web中的坐标系</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/09/React中的“虫洞”——Context/">React中的“虫洞”——Context</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/08/React Element、Component和ReactClass的概念/">React Element、Component和ReactClass的概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/07/React组件生命周期/">React组件生命周期</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/07/11/按位非/">按位非、右移</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/11/eventPassiveMode/">事件监听选项的passive属性</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/11/对象复制/">关于JS结构化克隆算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/11/Vue-cli项目css背景图路径问题/">Vue-cli项目css背景图路径问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/11/localStorage存储/">localStorage存储容量</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/10/SSE/">服务端发送事件(SSE)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/10/longPolling/">长轮询</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/01/ReactiveData/">响应式数据</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/26/Chrome调试远程设备白屏解决办法/">Chrome调试远程设备白屏解决办法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/26/WhyOPTIONS/">浏览器发送OPTIONS请求</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/26/ChromeDevtoolTiming/">Chrome Devtool 网络请求timing</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/26/Webpack异步ChunkName/">Webpack异步ChunkName</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/26/Nginx正则/">Nginx server location正则</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/26/filters/">Chrome Network filters</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/26/浏览器缓存/">浏览器缓存协商</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/05/Javascript递归遍历树/">Javascript递归遍历树</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/23/前端单元测试/">前端单元测试</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/20/Curl调试restful接口/">Curl调试restful接口</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/13/Canvas图像处理/">Canvas图像处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/13/H5图片上传本地预览/">H5图片上传本地预览</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/13/Canvas图片下载/">Canvas图片下载</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/12/Mac下brew安装Nginx及使用/">Mac下brew安装Nginx及使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/12/Canvas基础图形与动画/">Canvas基础图形与动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/06/常用git命令/">常用git命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/06/Canvas最佳实践（性能篇）/">Canvas最佳实践（性能篇）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/28/Web中的坐标系/">Web中的坐标系</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/09/React中的“虫洞”——Context/">React中的“虫洞”——Context</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/08/React Element、Component和ReactClass的概念/">React Element、Component和ReactClass的概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/07/React组件生命周期/">React组件生命周期</a></li></ul>
 
 
 
@@ -403,7 +374,7 @@
         <div id="footer-info">
             <div class="footer-left">
                 <i class="fa fa-copyright"></i> 
-                2017 王占永
+                2017-2018 前端记事
             </div>
             <div class="footer-right">
                 <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  
